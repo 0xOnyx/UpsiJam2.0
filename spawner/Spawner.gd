@@ -12,7 +12,7 @@ func _process(delta):
 	var x = int(rand_range(0, 512))
 	print(x);
 	ball.position = Vector2(x, 0);
-	#add_child(ball);
+	add_child(ball);
 	
 
 	
