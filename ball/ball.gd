@@ -20,6 +20,6 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func _on_screen_exit():
-	#print("despawning ball")
+func _on_VisibilityNotifier2D_screen_exited() -> void:
+	print("despawning ball")
 	queue_free()
