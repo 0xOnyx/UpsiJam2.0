@@ -6,6 +6,8 @@ extends StaticBody2D
 # var b = "text"
 onready var bounce_factor
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if bounce_factor == null:
