@@ -19,7 +19,6 @@ position = Vector2( 192, 334 )
 
 [node name="Cursor2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 746, 322 )
-
 player = "2"
 
 [node name="Spawner" parent="." instance=ExtResource( 4 )]
