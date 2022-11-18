@@ -10,7 +10,8 @@
 position = Vector2( 271, 39 )
 
 [node name="Blocker" parent="." instance=ExtResource( 2 )]
-position = Vector2( 265, 372 )
+position = Vector2( 340, 323 )
+rotation = -0.591982
 
 [node name="Cursor" parent="." instance=ExtResource( 3 )]
 position = Vector2( 209, 190 )
@@ -23,3 +24,7 @@ inputs = {
 "right": "2_move_right",
 "up": "2_move_up"
 }
+
+[node name="Blocker2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 34, 294 )
+rotation = 1.045
