@@ -22,13 +22,13 @@ func _on_Area2D_body_entered(body):
 		body.can_play = false;
 		return;
 	hit += 1
-	if hit == 2:
+	if hit == 15:
+		get_parent().modulate.a = .8
+	if hit == 16:
 		get_parent().modulate.a = .7
-	if hit == 3:
-		get_parent().modulate.a = .5
-	if hit == 4:
-		get_parent().modulate.a = .3
-	if hit == 5:
+	if hit == 18:
+		get_parent().modulate.a = .6
+	if hit == 20:
 		get_parent().queue_free()
 	pass # Replace with function body.
 

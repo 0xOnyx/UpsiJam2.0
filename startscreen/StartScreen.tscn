@@ -345,6 +345,7 @@ custom_fonts/font = SubResource( 3 )
 text = "      _"
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 material = SubResource( 2 )
 margin_left = -512.0
 margin_top = -320.0
