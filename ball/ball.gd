@@ -17,6 +17,7 @@ var out = 1;
 
 func init(var style):
 	scale_ball(.5)
+	.set_bounce(.5)
 	if style == 0:
 		style1()
 	elif style == 1:
