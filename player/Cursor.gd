@@ -43,12 +43,11 @@ func _physics_process(delta):
 	if Input.is_action_pressed(inputs["up"]):
 		vel.y -= speed;
 	if Input.is_action_just_pressed(inputs["place"]):
-		var block = flagPacked.instance(PackedScene.GEN_EDIT_STATE_MAIN);
+		var block = flagPacked.instance();
 		block.position = position
 		block.rotation = mirror * .45
 		block.get_node("Sprite").texture = sprite
 		block.bounce_factor = 1
 		get_parent().add_child(block)
-		modulate = Color(0, 1.5, 0)
 
 	vel = move_and_slide(vel, Vector2.UP);
