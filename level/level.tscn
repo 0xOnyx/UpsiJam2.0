@@ -5,7 +5,6 @@
 [ext_resource path="res://spawner/Spawner.tscn" type="PackedScene" id=4]
 
 [node name="Level" type="Node2D"]
-position = Vector2( 80, 80 )
 
 [node name="Blocker" parent="." instance=ExtResource( 2 )]
 position = Vector2( 292, 269 )

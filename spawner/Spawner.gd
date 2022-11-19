@@ -26,12 +26,10 @@ func _process(delta):
 func _on_Timer_timeout():
 	if (!realtime.is_stopped()) : 
 		var set_time_value = calc_time()
-		print (current_time)
-		print(set_time_value)
 		time.set_wait_time(calc_time());
 		randomize()
 		var ball = Ball.instance()
-		#ball.style = randi() %  ball.style_nums
+		ball.init(randi() %  ball.number_of_styles)
 		add_child(ball)
 
 
