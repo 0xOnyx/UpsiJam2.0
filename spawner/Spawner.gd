@@ -33,9 +33,8 @@ func _on_Timer_timeout():
 			randomize()
 			style = randi() % ball.numbersBalls
 		ball.init(style)
-		add_child_below_node (get_parent().get_node("BallBag"), ball)
-		
-
+		ball.position = position;
+		get_parent().get_node("BallBag").add_child(ball)
 
 func _on_RealTime_timeout():
 	if (current_time <= min_time): 

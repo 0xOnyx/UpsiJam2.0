@@ -287,7 +287,7 @@ position = Vector2( 320, 320 )
 position = Vector2( 704, 320 )
 player = "2"
 
-[node name="BlockerBack" type="Node" parent="."]
+[node name="BlockerBag" type="Node" parent="."]
 
 [node name="BallBag" type="Node" parent="."]
 
