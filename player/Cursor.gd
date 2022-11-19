@@ -115,7 +115,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed(inputs["place"]) && can_play:
 		can_play = false;
 		var block = flagPacked.instance();
-		block.init(preview.pop_front())
+		block.init(preview.pop_front(),player)
 		block.position = position;
 		block.rotation_degrees = place.rotation_degrees;
 		block.scale = place.scale;
