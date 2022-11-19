@@ -62,11 +62,10 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed(inputs["place"]) && can_play:
 		can_play = false;
-		var block = flagPacked.instance();
-		block.position = position
+		var block = flagPacked.new();
 		block.rotation = mirror * .45
 		block.get_node("Sprite").texture = sprite
 		block.bounce_factor = 1
-		get_parent().add_child(block)
+		add_child_below_node (get_parent().get_node("BallBag"), block)
 
 	#vel = move_and_slide(vel, Vector2.UP);
