@@ -34,24 +34,26 @@ func init(var style):
 #	pass
 func style0():
 #	print("heavy ball")
-	$Sprite.frame = 1 
+	$Sprite.frame = 0
 	weight = 100 
 
 func style1():
 #	print("low bounce ball")
-	$Sprite.frame = 2
+	$Sprite.frame = 1
 	bounce_factor = .1
 
 func style2():
 #	print("medium bounce ball")
-	$Sprite.frame = 3
+	$Sprite.frame = 2
 	bounce_factor = .5
 
 func style3():
 #	print("high bounce ball")
-	$Sprite.frame = 4
+	$Sprite.frame = 3
 	bounce_factor = .9
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
 #	print("despawning ball")
+#	var foo = get_tree().get_root()
+#	print(foo.)
 	queue_free()
