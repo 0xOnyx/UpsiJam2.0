@@ -14,11 +14,13 @@ position = Vector2( 88, 268 )
 rotation = 1.045
 
 [node name="Spawner" parent="." instance=ExtResource( 4 )]
-position = Vector2( 256, 184 )
+position = Vector2( 544, 35 )
 
 [node name="Cursor" parent="." instance=ExtResource( 3 )]
-position = Vector2( 103, 411 )
+position = Vector2( 198, 508 )
 
 [node name="Cursor2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 636, 395 )
+position = Vector2( 874, 525 )
 player = "2"
+
+[node name="BallBag" type="Node" parent="."]
