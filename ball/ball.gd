@@ -25,10 +25,6 @@ func init(var style):
 		style2()
 	elif style == 3:
 		style3()
-		
-	if bounce_factor == null:
-		.set_bounce(.5)
-	.set_bounce(bounce_factor)
 
 
 func scale_ball(fac):

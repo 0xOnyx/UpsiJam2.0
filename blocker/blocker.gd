@@ -14,11 +14,11 @@ func init(var type:int):
 
 	if (type == 0):
 		get_node("Sprite").texture = bouncy_sprite
-		blocker_type = 0;
-		.set_bounce(.5)
+		blocker_type = .5;
+		.set_bounce(0)
 	if (type == 1):
 		$Sprite.texture = sticky_sprite
-		.set_bounce(0)
+		.set_bounce(1)
 		blocker_type = 1;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -21,8 +21,8 @@ func _on_Area2D_body_entered(body):
 	if body is KinematicBody2D:
 		body.can_play = false;
 		return;
-	if (body is RigidBody2D && get_parent().get_bounce() != 0):
-		body.linear_velocity = Vector2(0,0)
+#	if (body is RigidBody2D && get_parent().blocker_type == 0):
+#		body.linear_velocity = Vector2(0,0)
 	hit += 1
 	if hit == 2:
 		get_parent().modulate.a = .7
