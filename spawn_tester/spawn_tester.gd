@@ -21,7 +21,7 @@ func _ready():
 	_resized()
 	for x in range(0, number_of_leaks + 1):
 		foo.append(pow(x,growth_rate)/pow(number_of_leaks, growth_rate))
-		print(pow(x,growth_rate)/pow(number_of_leaks, growth_rate))
+#		print(pow(x,growth_rate)/pow(number_of_leaks, growth_rate))
 	
 func _process(delta):
 	if foo[i] * match_duration < match_duration - timer.get_time_left():
@@ -38,7 +38,7 @@ func spawn_spawner():
 	if i % 2 == 0:
 		p = int(rand_range(left_player.x, left_player.y))
 	else:
-		p = int(rand_range(left_player.x, left_player.y))
+		p = int(rand_range(right_player.x, right_player.y))
 	spawner.position = Vector2(p, top_offset)
 	get_node("SpawnerBag").add_child(spawner)
 	# print("tried to make a spawner here", spawner, spawner.position)
