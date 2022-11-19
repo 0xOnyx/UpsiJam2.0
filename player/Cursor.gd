@@ -60,13 +60,13 @@ func _physics_process(delta):
 		else:
 			place.rotation_degrees = .0
 	if Input.is_action_just_pressed(inputs["right"]):
-		 position.x += speed;
+		 position.x += speed * 3;
 	if Input.is_action_just_pressed(inputs["left"]):
-		position.x -= speed;
+		position.x -= speed * 3;
 	if Input.is_action_just_pressed(inputs["down"]):
-		position.y += speed;
+		position.y += speed * 3;
 	if Input.is_action_just_pressed(inputs["up"]):
-		position.y -= speed;
+		position.y -= speed * 3;
 		
 	
 	if player == "2" && position.x < get_viewport().size.x / 2 + speed:
