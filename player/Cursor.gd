@@ -19,7 +19,9 @@ export var size = (Vector2(0.125, 0.125))
 onready var flagPacked = preload("res://blocker/blocker.tscn")
 onready var sprite;
 onready var place = $block;
+
 var preview= [randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2];
+
 
 var mirror = false
 var can_play = true;
@@ -33,35 +35,42 @@ func _ready():
 	place.scale = size
 	$Sprite.scale = size
 	$CollisionShape2D.scale = size
-	place.rotation_degrees = 90 if player == "1" else 0
-	mirror = true if player == "1" else false
+	place.rotation_degrees = 90 + (0 if preview[0] != 2 else 90) if (player == "1") else 0
+	mirror = true if (player == "1") else false
+
 	speed  = $CollisionShape2D.shape.extents.x * size.x;
 
 	pass 
 
 func pick():
-	var random = preview.pop_front()
+	var random = preview[0]
+
 
 	randomize();
-	preview.append(randi() % 2);
+
 
 	if (random == 0):
 		sprite = load("res://blocker/bouncy_asset.png")
-	else:
+	elif random == 1:
 		sprite = load("res://blocker/sticky_asset.png")
+	elif random == 2:
+		sprite = load("res://blocker/git_merge/git_merge_right.png")	
 	place.texture = sprite
-
+	preview.append(randi() % 3);
 	var i = 0;
 	while i < 5:
 		var texture = load("res://blocker/bouncy_asset.png")
 		if (preview[i] == 1):
 			texture = load("res://blocker/sticky_asset.png")
+		if (preview[i] == 2):
+			texture = load("res://blocker/git_merge/git_merge_right.png")
 		if (player == "1"):
-			get_parent().get_node("RightPadding").get_node("VBoxContainer").get_node("TextureRect" + str(i+1)).texture = texture;
+			get_parent().get_node("RightPadding").get_node("VBoxContainer").get_node("TextureRect" + str(i)).texture = texture;
 		else:
-			get_parent().get_node("LeftPadding").get_node("VBoxContainer").get_node("TextureRect" + str(i+1)).texture = texture;
+			get_parent().get_node("LeftPadding").get_node("VBoxContainer").get_node("TextureRect" + str(i)).texture = texture;
 				
 		i+=1
+
 
 
 func _physics_process(delta):
@@ -74,7 +83,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed(inputs["mirror"]):
 		mirror = !mirror
 		if (mirror):
-			place.rotation_degrees = 90
+			place.rotation_degrees = 90 + (0 if preview[0] != 2 else 90) 		
 		else:
 			place.rotation_degrees = .0
 	if Input.is_action_pressed(inputs["right"]):
@@ -105,7 +114,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed(inputs["place"]) && can_play:
 		can_play = false;
 		var block = flagPacked.instance();
-		block.init(preview[0])
+		block.init(preview.pop_front())
 		block.position = position;
 		block.rotation_degrees = place.rotation_degrees;
 		block.scale = place.scale;
