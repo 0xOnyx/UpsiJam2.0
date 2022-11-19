@@ -18,6 +18,7 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
+	get_parent().get_node("AudioStreamPlayer2D").play()
 	if body is KinematicBody2D:
 		body.can_play = false;
 		return;
