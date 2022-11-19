@@ -9,6 +9,7 @@ var current_select = 0
 
 
 func _ready():
+	get_tree().change_scene("res://level/level.tscn")
 	pass # Replace with function body.
 
 
