@@ -45,7 +45,7 @@ func _on_SpawnerTimer_timeout():
 		get_node("SpawnerBag").add_child(spawner1)
 		get_node("SpawnerBag").add_child(spawner2)
 
-func _on_SpawnerMatchTimer_timeout():
+func _on_SpawnerMatchTime_timeout():
 	if (current_time <= min_time): 
 		matchtime.stop()
 	current_time -= 1
@@ -53,3 +53,6 @@ func _on_SpawnerMatchTimer_timeout():
 # level manager
 # generte the spawning 
 
+
+func _on_SpawnerMatchTimer_timeout():
+	pass # Replace with function body.
