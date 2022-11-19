@@ -3,7 +3,8 @@
 [ext_resource path="res://font/clacon2.ttf" type="DynamicFontData" id=1]
 
 [sub_resource type="DynamicFont" id=1]
-size = 40
+size = 37
+extra_spacing_char = 20
 font_data = ExtResource( 1 )
 
 [node name="score" type="Control"]
@@ -15,5 +16,5 @@ margin_top = 16.0
 margin_right = 64.0
 margin_bottom = 64.0
 custom_fonts/font = SubResource( 1 )
-text = "99"
-align = 1
+text = "9999"
+align = 2

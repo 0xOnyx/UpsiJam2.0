@@ -242,7 +242,7 @@ void fragment()
 shader = SubResource( 4 )
 shader_param/overlay = true
 shader_param/scanlines_opacity = 0.075
-shader_param/scanlines_width = 0.28
+shader_param/scanlines_width = 0.195
 shader_param/grille_opacity = 0.137
 shader_param/resolution = Vector2( 640, 480 )
 shader_param/pixelate = true
@@ -345,7 +345,6 @@ custom_fonts/font = SubResource( 3 )
 text = "      _"
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 material = SubResource( 2 )
 margin_left = -512.0
 margin_top = -320.0
