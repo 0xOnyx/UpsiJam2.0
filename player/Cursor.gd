@@ -63,7 +63,7 @@ func _physics_process(delta):
 		else:
 			place.rotation_degrees = .0
 	if Input.is_action_pressed(inputs["right"]):
-		 vel.x += 300;
+		vel.x += 300;
 	if Input.is_action_pressed(inputs["left"]):
 		vel.x -= 300 ;
 	if Input.is_action_pressed(inputs["down"]):

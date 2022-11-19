@@ -35,9 +35,10 @@ func _on_Timer_timeout():
 		ball.init(style)
 		ball.position = position;
 		get_parent().get_parent().get_node("BallBag").add_child(ball)
+	else:
+		get_tree().change_scene("res://level/level.tscn")
 
 func _on_RealTime_timeout():
 	if (current_time <= min_time): 
 		realtime.stop()
-		queue_free()
 	current_time -= 1

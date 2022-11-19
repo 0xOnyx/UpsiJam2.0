@@ -27,7 +27,7 @@ func _process(delta):
 			select_start.hide()
 			select_exit.show()
 	if (Input.is_action_just_pressed("1_select") and current_select == 0):
-		get_tree().change_scene("res://effect/effect.tscn")
+		get_tree().change_scene("res://load/load.tscn")
 	elif (Input.is_action_just_pressed("1_select") and current_select == 1):
 		get_tree().quit()
 

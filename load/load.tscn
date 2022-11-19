@@ -1,11 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://startscreen/StartScreen.gd" type="Script" id=1]
-[ext_resource path="res://font/clacon2.ttf" type="DynamicFontData" id=2]
-
-[sub_resource type="DynamicFont" id=3]
-size = 50
-font_data = ExtResource( 2 )
+[ext_resource path="res://load/load.gd" type="Script" id=1]
+[ext_resource path="res://audio/modem-56k-2.mp3" type="AudioStream" id=2]
 
 [sub_resource type="Shader" id=4]
 code = "/*
@@ -238,7 +234,7 @@ void fragment()
 	COLOR = text;
 }"
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=5]
 shader = SubResource( 4 )
 shader_param/overlay = true
 shader_param/scanlines_opacity = 0.292
@@ -262,97 +258,149 @@ shader_param/clip_warp = false
 shader_param/vignette_intensity = 0.4
 shader_param/vignette_opacity = 0.572
 
-[node name="StartScreen" type="Control"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+[node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="ColorRect2" type="ColorRect" parent="."]
-margin_left = -512.0
-margin_top = -320.0
-margin_right = 512.0
-margin_bottom = 320.0
+margin_right = 1024.0
+margin_bottom = 640.0
 color = Color( 0.0509804, 0.168627, 0.270588, 1 )
 
-[node name="title" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -100.0
-margin_top = -133.0
-margin_right = 100.0
-margin_bottom = -91.0
-rect_pivot_offset = Vector2( 47.5, 61 )
-custom_colors/font_color = Color( 1, 0.92549, 0.839216, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "GIT WARS"
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 128.0
+margin_top = -32.0
+margin_right = 1136.0
+margin_bottom = 616.0
+visible_characters = 0
+percent_visible = 0.0
+meta_underlined = false
+text = "Welcome to Raspbian GNU/Linux 8 (jessie)!
 
-[node name="start" type="Label" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -87.5
-margin_top = -51.0
-margin_right = 87.5
-margin_bottom = -9.0
-rect_pivot_offset = Vector2( 47.5, 61 )
-custom_colors/font_color = Color( 1, 0.831373, 0.639216, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "$ START"
-
-[node name="exit" type="Label" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -87.5
-margin_top = 8.0
-margin_right = 87.5
-margin_bottom = 50.0
-rect_pivot_offset = Vector2( 47.5, 61 )
-custom_colors/font_color = Color( 1, 0.831373, 0.639216, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "$ EXIT"
-
-[node name="select_start" type="Label" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -87.5
-margin_top = -51.0
-margin_right = 87.5
-margin_bottom = -9.0
-rect_pivot_offset = Vector2( 47.5, 61 )
-custom_colors/font_color = Color( 1, 0.831373, 0.639216, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "       _"
-
-[node name="select_exit" type="Label" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -87.5
-margin_top = 8.0
-margin_right = 87.5
-margin_bottom = 50.0
-rect_pivot_offset = Vector2( 47.5, 61 )
-custom_colors/font_color = Color( 1, 0.831373, 0.639216, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "      _"
+         Expecting device dev-ttyAMA0.device...
+[  OK  ] Reached target Remote File Systems (Pre).
+[  OK  ] Reached target Encrypted Volumes.
+[  OK  ] Set up automount Arbitrary Executable File Formats F...utomount Point.
+[  OK  ] Reached target Swap.
+[  OK  ] Created slice Root Slice.
+[  OK  ] Created slice User and Session Slice.
+[  OK  ] Listening on /dev/initctl Compatibility Named Pipe.
+[  OK  ] Listening on Delayed Shutdown Socket.
+[  OK  ] Listening on Journal Socket (/dev/log).
+[  OK  ] Listening on udev Control Socket.
+[  OK  ] Listening on udev Kernel Socket.
+[  OK  ] Listening on Journal Socket.
+[  OK  ] Created slice System Slice.
+[  OK  ] Created slice system-getty.slice.
+[  OK  ] Created slice system-serial\\x2dgetty.slice.
+         Starting Increase datagram queue length...
+         Starting Restore / save the current clock...
+         Mounting POSIX Message Queue File System...
+         Starting Create list of required static device nodes...rrent kernel...
+         Starting udev Coldplug all Devices...
+         Starting Load Kernel Modules...
+         Mounting Debug File System...
+[  OK  ] Reached target Slices.
+[  OK  ] Mounted Debug File System.
+[  OK  ] Mounted POSIX Message Queue File System.
+[  OK  ] Started Increase datagram queue length.
+[  OK  ] Started Restore / save the current clock.
+[  OK  ] Started Create list of required static device nodes ...current kernel.
+[  OK  ] Started Load Kernel Modules.
+[  OK  ] Started udev Coldplug all Devices.
+         Starting Apply Kernel Variables...
+         Mounting Configuration File System...
+         Starting Create Static Device Nodes in /dev...
+[  OK  ] Listening on Syslog Socket.
+         Starting Journal Service...
+[  OK  ] Started Journal Service.
+[  OK  ] Mounted Configuration File System.
+[  OK  ] Started Apply Kernel Variables.
+[  OK  ] Started Create Static Device Nodes in /dev.
+         Starting udev Kernel Device Manager...
+[  OK  ] Started udev Kernel Device Manager.
+         Starting Copy rules generated while the root was ro...
+         Starting LSB: Set preliminary keymap...
+[  OK  ] Started Copy rules generated while the root was ro.
+[  OK  ] Found device /dev/ttyAMA0.
+[  OK  ] Started LSB: Set preliminary keymap.
+[  OK  ] Reached target Paths.
+         Starting Remount Root and Kernel File Systems...
+[  OK  ] Started Remount Root and Kernel File Systems.
+         Starting Load/Save Random Seed...
+[  OK  ] Reached target Local File Systems (Pre).
+[  OK  ] Reached target Local File Systems.
+         Starting Tell Plymouth To Write Out Runtime Data...
+         Starting Create Volatile Files and Directories...
+[  OK  ] Reached target Remote File Systems.
+         Starting Trigger Flushing of Journal to Persistent Storage...
+         Starting LSB: Prepare console...
+         Starting LSB: Switch to ondemand cpu governor (unles... is pressed)...
+[  OK  ] Started Load/Save Random Seed.
+[  OK  ] Started Tell Plymouth To Write Out Runtime Data.
+[  OK  ] Started Create Volatile Files and Directories.
+[  OK  ] Started LSB: Switch to ondemand cpu governor (unless...ey is pressed).
+[  OK  ] Started Trigger Flushing of Journal to Persistent Storage.
+[  OK  ] Started LSB: Prepare console.
+         Starting LSB: Set console font and keymap...
+         Starting Update UTMP about System Boot/Shutdown...
+         Starting LSB: Raise network interfaces....
+[  OK  ] Started Update UTMP about System Boot/Shutdown.
+[  OK  ] Started LSB: Set console font and keymap.
+[  OK  ] Started LSB: Raise network interfaces..
+[  OK  ] Reached target Network.
+[  OK  ] Reached target Network is Online.
+[  OK  ] Reached target System Initialization.
+[  OK  ] Listening on D-Bus System Message Bus Socket.
+[  OK  ] Reached target Sockets.
+[  OK  ] Reached target Timers.
+[  OK  ] Reached target Basic System.
+         Starting OpenBSD Secure Shell server...
+[  OK  ] Started OpenBSD Secure Shell server.
+         Starting Regular background program processing daemon...
+[  OK  ] Started Regular background program processing daemon.
+         Starting /etc/rc.local Compatibility...
+         Starting Login Service...
+         Starting LSB: Start NTP daemon...
+         Starting LSB: triggerhappy hotkey daemon...
+         Starting D-Bus System Message Bus...
+[  OK  ] Started D-Bus System Message Bus.
+         Starting System Logging Service...
+         Starting Permit User Sessions...
+[  OK  ] Started /etc/rc.local Compatibility.
+[  OK  ] Started LSB: Start NTP daemon.
+[  OK  ] Started LSB: triggerhappy hotkey daemon.
+[  OK  ] Started Permit User Sessions.
+[  OK  ] Started System Logging Service.
+         Starting Wait for Plymouth Boot Screen to Quit...
+         Starting Terminate Plymouth Boot Screen...
+[  OK  ] Started Wait for Plymouth Boot Screen to Quit.
+[  OK  ] Started Terminate Plymouth Boot Screen.
+[  OK  ] Started Login Service.
+         Starting Getty on tty1...
+[  OK  ] Started Getty on tty1.
+         Starting Serial Getty on ttyAMA0...
+[  OK  ] Started Serial Getty on ttyAMA0.
+[  OK  ] Reached target Login Prompts.
+[  OK  ] Reached target Multi-User System.
+[  OK  ] Reached target Graphical Interface.
+         Starting Update UTMP about System Runlevel Changes...
+[  OK  ] Started Update UTMP about System Runlevel Changes.
+"
+scroll_following = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
-material = SubResource( 2 )
-margin_left = -512.0
-margin_top = -320.0
-margin_right = 512.0
-margin_bottom = 320.0
+material = SubResource( 5 )
+margin_right = 1024.0
+margin_bottom = 640.0
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.502
+wait_time = 0.397
 autostart = true
 
+[node name="RealTime" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="RealTime" to="." method="_on_RealTime_timeout"]
