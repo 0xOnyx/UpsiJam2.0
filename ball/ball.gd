@@ -7,15 +7,16 @@ extends RigidBody2D
 
 
 var bounce_factor
-onready var style
+#onready var style
 var number_of_styles = 4
 
 var out = 1;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if style == null:
-		style = 1
+	pass
+
+func _init(var style):
 	if style == 0:
 		style1()
 	elif style == 1:
@@ -33,25 +34,25 @@ func _ready():
 #func _process(delta):
 #	pass
 func style0():
-	print("heavy ball")
+#	print("heavy ball")
 	$Sprite.frame = 1 
 	weight = 100 
 
 func style1():
-	print("low bounce ball")
+#	print("low bounce ball")
 	$Sprite.frame = 2
 	bounce_factor = .1
 
 func style2():
-	print("medium bounce ball")
+#	print("medium bounce ball")
 	$Sprite.frame = 3
 	bounce_factor = .5
 
 func style3():
-	print("high bounce ball")
+#	print("high bounce ball")
 	$Sprite.frame = 4
 	bounce_factor = .9
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
-	print("despawning ball")
+#	print("despawning ball")
 	queue_free()
