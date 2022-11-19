@@ -27,11 +27,11 @@ func _process(delta):
 func _on_Timer_timeout():
 	if (!realtime.is_stopped()) : 
 		var set_time_value = calc_time()
-		time.set_wait_time(calc_time());
+		time.set_wait_time(7);
 		var ball = Ball.instance()
 		if (style == -1):
 			randomize()
-			style = randi() % ball.numbersBalls
+			style = randi() % 3#ersBalls
 		ball.init(style)
 		ball.position = position;
 		get_parent().get_parent().get_node("BallBag").add_child(ball)

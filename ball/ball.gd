@@ -55,4 +55,5 @@ func _on_VisibilityNotifier2D_screen_exited() -> void:
 #	print("despawning ball")
 #	var foo = get_tree().get_root()
 #	print(foo.)
+
 	queue_free()
