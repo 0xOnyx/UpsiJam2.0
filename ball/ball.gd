@@ -7,8 +7,7 @@ extends RigidBody2D
 
 
 var bounce_factor
-#onready var style
-var number_of_styles = 4
+var numbersBalls = 4
 
 var out = 1;
 
@@ -16,7 +15,7 @@ var out = 1;
 func _ready():
 	pass
 
-func _init(var style):
+func init(var style):
 	if style == 0:
 		style1()
 	elif style == 1:

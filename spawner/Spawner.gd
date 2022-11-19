@@ -29,7 +29,7 @@ func _on_Timer_timeout():
 		time.set_wait_time(calc_time());
 		randomize()
 		var ball = Ball.instance()
-		ball.init(randi() %  ball.number_of_styles)
+		ball.init(randi() % ball.numbersBalls)
 		add_child(ball)
 
 
