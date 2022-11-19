@@ -39,4 +39,5 @@ func _on_Timer_timeout():
 func _on_RealTime_timeout():
 	if (current_time <= min_time): 
 		realtime.stop()
+		queue_free()
 	current_time -= 1
