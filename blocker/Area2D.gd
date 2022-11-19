@@ -18,6 +18,9 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
+	if body is KinematicBody2D:
+		body.can_play = false;
+		return;
 	hit += 1
 	if hit == 2:
 		get_parent().modulate.a = .7
@@ -27,4 +30,10 @@ func _on_Area2D_body_entered(body):
 		get_parent().modulate.a = .3
 	if hit == 5:
 		get_parent().queue_free()
+	pass # Replace with function body.
+
+
+func _on_Area2D_body_exited(body):
+	if body is KinematicBody2D:
+		body.can_play = true;
 	pass # Replace with function body.

@@ -19,6 +19,7 @@ onready var flagPacked = preload("res://blocker/blocker.tscn")
 onready var sprite = preload("res://blocker/blocker.png")
 onready var place = $block;
 var mirror = 1
+var can_play = true;
 
 func _ready():
 	position = Vector2(0,0)
@@ -29,9 +30,6 @@ func _ready():
 
 func _physics_process(delta):
 	modulate.a = 0.5
-	print(position)
-	print(get_viewport().size.y)
-	print(speed)
 	
 
 	vel.x = 0;
@@ -62,7 +60,8 @@ func _physics_process(delta):
 	if position.y > get_viewport().size.y - speed:
 		position.y = get_viewport().size.y - speed;
 		
-	if Input.is_action_just_pressed(inputs["place"]):
+	if Input.is_action_just_pressed(inputs["place"]) && can_play:
+		can_play = false;
 		var block = flagPacked.instance();
 		block.position = position
 		block.rotation = mirror * .45
