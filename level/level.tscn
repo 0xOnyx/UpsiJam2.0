@@ -285,7 +285,7 @@ position = Vector2( 280, 222 )
 rotation = 1.045
 
 [node name="Spawner" parent="." instance=ExtResource( 4 )]
-position = Vector2( 448, 138 )
+position = Vector2( 512, 72 )
 
 [node name="Cursor" parent="." instance=ExtResource( 3 )]
 position = Vector2( 295, 365 )
@@ -293,6 +293,8 @@ position = Vector2( 295, 365 )
 [node name="Cursor2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 828, 349 )
 player = "2"
+
+[node name="BallBag" type="Node" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource( 2 )

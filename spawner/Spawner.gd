@@ -23,14 +23,18 @@ func _ready():
 func _process(delta):
 	pass
 
+
 func _on_Timer_timeout():
 	if (!realtime.is_stopped()) : 
 		var set_time_value = calc_time()
 		time.set_wait_time(calc_time());
-		randomize()
 		var ball = Ball.instance()
-		ball.init(randi() % ball.numbersBalls)
-		add_child(ball)
+		if (style == -1):
+			randomize()
+			style = randi() % ball.numbersBalls
+		ball.init(style)
+		add_child_below_node (get_parent().get_node("BallBag"), ball)
+		
 
 
 func _on_RealTime_timeout():
