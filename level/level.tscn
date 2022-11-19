@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://level/level.gd" type="Script" id=1]
 [ext_resource path="res://score/score.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/Cursor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://level/white_line.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
@@ -65,6 +69,22 @@ offset = Vector2( 1991.11, 199.111 )
 [node name="SpawnerMatchTimer" type="Timer" parent="."]
 
 [node name="SpawnerTimer" type="Timer" parent="."]
+
+[node name="RightPadding" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightPadding"]
+shape = SubResource( 1 )
+
+[node name="Line2D" type="Line2D" parent="RightPadding"]
+points = PoolVector2Array( 0, 0 )
+default_color = Color( 0.835294, 0.839216, 0.858824, 1 )
+
+[node name="LeftPadding" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftPadding"]
+shape = SubResource( 2 )
+
+[node name="Line2D" type="Line2D" parent="LeftPadding"]
 
 [connection signal="timeout" from="SpawnerMatchTimer" to="." method="_on_SpawnerMatchTimer_timeout"]
 [connection signal="timeout" from="SpawnerTimer" to="." method="_on_SpawnerTimer_timeout"]

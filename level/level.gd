@@ -5,6 +5,12 @@ var max_time = 10
 var min_time = 3
 
 var current_time = max_time
+onready var side_padding = get_viewport().size.x * .15
+onready var middle_padding = get_viewport().size.x * .05
+onready var rightpadd_shape = get_node("RightPadding").get_child(0)
+onready var rightpadd_line = get_node("RightPadding").get_child(1)
+onready var leftpadd_shape = get_node("LeftPadding").get_child(0)
+onready var leftpadd_line = get_node("LeftPadding").get_child(1)
 
 onready var score = [get_node("score1"), get_node("score2")]
 
@@ -27,14 +33,15 @@ func _ready():
 	matchtime.start(set_time_value)
 	time.start(1)
 	score[0].get_child(0).text = str(1)
-
+#	rightpadd_shape.set_shape(RectangleShape2D).extents.x = side_padding*2
+#	rightpadd_shape.get_child(0).set_shape(RectangleShape2D).extents.y = side_padding*2
+#	rightpadd_line.PoolVector2Array = [[0, 0,], [side_padding, get_viewport().y]]
 
 func _on_SpawnerTimer_timeout():
 	if (!matchtime.is_stopped()) : 
-		print("lskjdf")
 		randomize()
-		var p1 = int(rand_range(0, get_viewport().size.x/2))
-		var p2 = int(rand_range(get_viewport().size.x/2, get_viewport().size.x))
+		var p1 = int(rand_range(side_padding, get_viewport().size.x/2) - middle_padding)
+		var p2 = int(rand_range(get_viewport().size.x/2 + middle_padding, get_viewport().size.x) - side_padding)
 		var set_time_value = calc_time()
 		time.set_wait_time(calc_time());
 		var spawner1 = Spawner.instance()
