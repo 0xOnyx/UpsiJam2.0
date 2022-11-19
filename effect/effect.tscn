@@ -241,9 +241,9 @@ void fragment()
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
 shader_param/overlay = true
-shader_param/scanlines_opacity = 0.452
-shader_param/scanlines_width = 0.089
-shader_param/grille_opacity = 0.078
+shader_param/scanlines_opacity = 0.043
+shader_param/scanlines_width = 0.074
+shader_param/grille_opacity = 0.083
 shader_param/resolution = Vector2( 640, 480 )
 shader_param/pixelate = false
 shader_param/roll = false

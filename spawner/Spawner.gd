@@ -47,11 +47,7 @@ func spawn_ball():
 	if get_parent().get_parent() != null:
 		get_parent().get_parent().get_node("BallBag").add_child(ball)
 	else:
-		time.stop()
-		print("OUT")
+		.add_child(ball)
 
-func _on_RealTime_timeout():
-	if (current_time <= min_time): 
-		realtime.stop()
-		get_tree().change_scene("res://level/level.tscn")
-	current_time -= 1
+func _on_Timer_timeout():
+	queue_free()
