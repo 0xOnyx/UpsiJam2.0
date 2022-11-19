@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var lifes: int = 10;
-onready var speed : int = $CollisionShape2D.shape.extents.x;
+
 var vel = Vector2()
 
 export var player = "1";
@@ -15,28 +15,50 @@ onready var inputs = {
 	"mirror": player + "_mirror"
 };
 
+export var size = (Vector2(0.125, 0.125))
 onready var flagPacked = preload("res://blocker/blocker.tscn")
-onready var sprite = preload("res://blocker/blocker.png")
+onready var sprite;
 onready var place = $block;
-var mirror = 1
+var random : int;
+var mirror = false
 var can_play = true;
+var speed : int;
+
 
 func _ready():
+	pick()
 	position = Vector2(0,0)
-	place.texture = sprite
+
 	place.modulate.a = .2
-	place.rotation = .45
+	place.scale = size
+	$Sprite.scale = size
+	$CollisionShape2D.scale = size
+	place.rotation_degrees = 0
+	speed  = $CollisionShape2D.shape.extents.x * size.x;
 	pass 
+
+func pick():
+	randomize();
+	random = randi() % 2;
+	if (random == 0):
+		sprite = load("res://blocker/bouncy_asset.png")
+	else:
+		sprite = load("res://blocker/sticky_asset.png")
+	place.texture = sprite
 
 func _physics_process(delta):
 	modulate.a = 0.5
+
 	
 
 	vel.x = 0;
 	vel.y = 0;
 	if Input.is_action_just_pressed(inputs["mirror"]):
-		mirror *= -1
-		place.rotation *= -1
+		mirror = !mirror
+		if (mirror):
+			place.rotation_degrees = 90
+		else:
+			place.rotation_degrees = .0
 	if Input.is_action_just_pressed(inputs["right"]):
 		 position.x += speed;
 	if Input.is_action_just_pressed(inputs["left"]):
@@ -63,10 +85,13 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed(inputs["place"]) && can_play:
 		can_play = false;
 		var block = flagPacked.instance();
-		block.position = position
-		block.rotation = mirror * .45
-		block.get_node("Sprite").texture = sprite
-		block.bounce_factor = 1
-		get_parent().get_node("BlockerBag").add_child(block)
+		block.init(random)
+		block.position = position;
+		block.rotation_degrees = place.rotation_degrees;
+		block.scale = place.scale;
+		block.get_node("Sprite").texture = sprite;
+		get_parent().get_node("BlockerBag").add_child(block);
+		pick();
+		
 
 	#vel = move_and_slide(vel, Vector2.UP);

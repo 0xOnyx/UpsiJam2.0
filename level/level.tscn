@@ -282,6 +282,7 @@ position = Vector2( 512, 72 )
 
 [node name="Cursor" parent="." instance=ExtResource( 3 )]
 position = Vector2( 320, 320 )
+size = Vector2( 0.2, 0.2 )
 
 [node name="Cursor2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 704, 320 )

@@ -10,22 +10,26 @@ collision_mask = 3
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 6, -5 )
 rotation = 1.5708
+scale = Vector2( 4.27755, 4.18036 )
 build_mode = 1
-polygon = PoolVector2Array( 28.0001, 25.9999, -25.0001, -26.9999, 27.9999, -27.0001 )
+polygon = PoolVector2Array( 28.2873, 32.5329, -29.2224, -26.7918, 27.9999, -27.0001 )
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 3 )
 
-[node name="CollisionShape2D2" type="CollisionPolygon2D" parent="Area2D"]
+[node name="CollisionShape2D3" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2( 6, -5 )
 rotation = 1.5708
-polygon = PoolVector2Array( 30.0001, 32.9999, -33.0001, -29.9999, 29.9999, -30.0001 )
+scale = Vector2( 4.27755, 4.18036 )
+build_mode = 1
+polygon = PoolVector2Array( 28.2873, 32.5329, -29.2224, -26.7918, 27.9999, -27.0001 )
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_Area2D_body_exited"]
