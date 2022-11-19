@@ -300,11 +300,7 @@ scale = Vector2( 1, 1 )
 
 [node name="Cursor" parent="." instance=ExtResource( 3 )]
 position = Vector2( 320, 320 )
-<<<<<<< Updated upstream
 size = Vector2( 0.2, 0.2 )
-=======
-scale = Vector2( 1, 1 )
->>>>>>> Stashed changes
 
 [node name="Cursor2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 704, 320 )
