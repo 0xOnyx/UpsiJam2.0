@@ -5,7 +5,8 @@ var max_time = 10
 var min_time = 3
 
 var current_time = max_time
-onready var side_padding = get_viewport().size.x * .15
+#onready var side_padding = get_viewport().size.x * .15
+onready var side_padding = 200
 onready var middle_padding = get_viewport().size.x * .05
 onready var rightpadd_shape = get_node("RightPadding/CollisionShape2D")
 #onready var rightpadd_shape = get_node("RightPadding").get_child(0)
