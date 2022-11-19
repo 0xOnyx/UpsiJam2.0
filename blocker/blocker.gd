@@ -14,7 +14,7 @@ func init(var type:int):
 
 	if (type == 0):
 		get_node("Sprite").texture = bouncy_sprite
-		blocker_type = .5;
+		blocker_type = 0;
 		.set_bounce(0)
 	if (type == 1):
 		$Sprite.texture = sticky_sprite
