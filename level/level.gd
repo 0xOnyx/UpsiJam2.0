@@ -7,7 +7,8 @@ var min_time = 3
 var current_time = max_time
 onready var side_padding = get_viewport().size.x * .15
 onready var middle_padding = get_viewport().size.x * .05
-onready var rightpadd_shape = get_node("RightPadding").get_child(0)
+onready var rightpadd_shape = get_node("RightPadding/CollisionShape2D")
+#onready var rightpadd_shape = get_node("RightPadding").get_child(0)
 onready var rightpadd_line = get_node("RightPadding").get_child(1)
 onready var leftpadd_shape = get_node("LeftPadding").get_child(0)
 onready var leftpadd_line = get_node("LeftPadding").get_child(1)
@@ -41,6 +42,7 @@ func _on_SpawnerTimer_timeout():
 	if (!matchtime.is_stopped()) : 
 		randomize()
 		var p1 = int(rand_range(side_padding, get_viewport().size.x/2) - middle_padding)
+		randomize()
 		var p2 = int(rand_range(get_viewport().size.x/2 + middle_padding, get_viewport().size.x) - side_padding)
 		var set_time_value = calc_time()
 		time.set_wait_time(calc_time());
