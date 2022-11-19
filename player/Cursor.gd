@@ -30,7 +30,6 @@ func _ready():
 	pick()
 	position = Vector2(0,0)
 
-	place.modulate.a = .2
 	place.scale = size
 	$Sprite.scale = size
 	$CollisionShape2D.scale = size
@@ -51,7 +50,7 @@ func pick():
 	place.texture = sprite
 
 func _physics_process(delta):
-	modulate.a = 0.5
+	modulate.a = 0.8
 
 	
 
