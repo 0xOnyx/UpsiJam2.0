@@ -19,7 +19,7 @@ export var size = (Vector2(0.125, 0.125))
 onready var flagPacked = preload("res://blocker/blocker.tscn")
 onready var sprite;
 onready var place = $block;
-var preview= [randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2];
+var preview= [randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2];
 
 var mirror = false
 var can_play = true;
@@ -33,8 +33,10 @@ func _ready():
 	place.scale = size
 	$Sprite.scale = size
 	$CollisionShape2D.scale = size
-	place.rotation_degrees = 0
+	place.rotation_degrees = 90 if player == "1" else 0
+	mirror = true if player == "1" else false
 	speed  = $CollisionShape2D.shape.extents.x * size.x;
+
 	pass 
 
 func pick():
@@ -50,7 +52,7 @@ func pick():
 	place.texture = sprite
 
 	var i = 0;
-	while i < 3:
+	while i < 5:
 		var texture = load("res://blocker/bouncy_asset.png")
 		if (preview[i] == 1):
 			texture = load("res://blocker/sticky_asset.png")

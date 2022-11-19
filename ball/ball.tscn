@@ -7,7 +7,6 @@
 radius = 31.0161
 
 [node name="Ball" type="RigidBody2D"]
-gravity_scale = 5.0
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]

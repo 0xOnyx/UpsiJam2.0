@@ -37,6 +37,7 @@ func _process(delta):
 #		print("spawn a ball with", timer.get_time_left())
 		spawn_ball()
 
+
 func spawn_ball():
 	var ball = Ball.instance()
 	if (style == -1):
