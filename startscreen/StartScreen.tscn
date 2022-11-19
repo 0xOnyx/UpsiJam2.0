@@ -241,7 +241,7 @@ void fragment()
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 4 )
 shader_param/overlay = true
-shader_param/scanlines_opacity = 0.292
+shader_param/scanlines_opacity = 0.075
 shader_param/scanlines_width = 0.28
 shader_param/grille_opacity = 0.137
 shader_param/resolution = Vector2( 640, 480 )
@@ -254,7 +254,7 @@ shader_param/distort_intensity = 0.05
 shader_param/noise_opacity = 0.4
 shader_param/noise_speed = 5.0
 shader_param/static_noise_intensity = 0.06
-shader_param/aberration = 0.02
+shader_param/aberration = 0.01
 shader_param/brightness = 1.4
 shader_param/discolor = true
 shader_param/warp_amount = 1.049
@@ -276,28 +276,19 @@ margin_right = 512.0
 margin_bottom = 320.0
 color = Color( 0.0509804, 0.168627, 0.270588, 1 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="title" type="Label" parent="."]
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 592.0
-margin_top = -96.0
-margin_right = 813.0
-margin_bottom = 141.0
+margin_left = -100.0
+margin_top = -133.0
+margin_right = 100.0
+margin_bottom = -91.0
+rect_pivot_offset = Vector2( 47.5, 61 )
+custom_colors/font_color = Color( 1, 0.92549, 0.839216, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "GIT WARS"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
-margin_right = 221.0
-margin_bottom = 20.0
-text = "Quit"
-
-[node name="StartButton" type="Button" parent="VBoxContainer"]
-margin_top = 24.0
-margin_right = 221.0
-margin_bottom = 44.0
-text = "Start"
-
-[node name="Label" type="Label" parent="."]
+[node name="start" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -311,7 +302,7 @@ custom_colors/font_color = Color( 1, 0.831373, 0.639216, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "$ START"
 
-[node name="Label3" type="Label" parent="."]
+[node name="exit" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -364,6 +355,4 @@ margin_bottom = 320.0
 wait_time = 0.502
 autostart = true
 
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

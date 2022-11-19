@@ -8,10 +8,6 @@ extends Control
 var current_select = 0
 
 
-func _ready():
-	pass # Replace with function body.
-
-
 
 onready var select_start = get_node("select_start")
 onready var select_exit = get_node("select_exit")
