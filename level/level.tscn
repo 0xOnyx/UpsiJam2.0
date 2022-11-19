@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://level/level.gd" type="Script" id=1]
 [ext_resource path="res://score/score.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/Cursor.tscn" type="PackedScene" id=3]
-[ext_resource path="res://spawner/Spawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://level/white_line.png" type="Texture" id=5]
 
 [sub_resource type="Shader" id=1]
@@ -286,30 +285,19 @@ margin_bottom = 105.0
 rect_scale = Vector2( 1.70654, 5.69791 )
 color = Color( 0.215686, 0.25098, 0.282353, 0.329412 )
 
-[node name="Spawner" parent="." instance=ExtResource( 4 )]
-position = Vector2( 256, 128 )
-scale = Vector2( 1, 1 )
-
-[node name="Spawner3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 704, 256 )
-scale = Vector2( 1, 1 )
-
-[node name="Spawner2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 384, 128 )
-scale = Vector2( 1, 1 )
-
 [node name="Cursor" parent="." instance=ExtResource( 3 )]
 position = Vector2( 320, 320 )
 size = Vector2( 0.2, 0.2 )
 
 [node name="Cursor2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 704, 320 )
-scale = Vector2( 1, 1 )
 player = "2"
 
-[node name="BlockerBag" type="Node" parent="."]
-
 [node name="BallBag" type="Node" parent="."]
+
+[node name="SpawnerBag" type="Node" parent="."]
+
+[node name="BlockerBag" type="Node" parent="."]
 
 [node name="score1" parent="." instance=ExtResource( 2 )]
 margin_left = 288.0
@@ -350,3 +338,10 @@ position = Vector2( 14.222, 494.222 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 5 )
 offset = Vector2( 1991.11, 199.111 )
+
+[node name="SpawnerMatchTimer" type="Timer" parent="."]
+
+[node name="SpawnerTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="SpawnerMatchTimer" to="." method="_on_SpawnerMatchTimer_timeout"]
+[connection signal="timeout" from="SpawnerTimer" to="." method="_on_SpawnerTimer_timeout"]
