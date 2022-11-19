@@ -12,10 +12,11 @@ var numbersBalls = 4
 var out = 1;
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
+#func _ready():
+#	scale = Vector2(.5, .5)
 
 func init(var style):
+	scale_ball(.5)
 	if style == 0:
 		style1()
 	elif style == 1:
@@ -29,13 +30,15 @@ func init(var style):
 		.set_bounce(.5)
 	.set_bounce(bounce_factor)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+func scale_ball(fac):
+	$Sprite.scale *= Vector2(fac, fac)
+	$CollisionShape2D.scale *= Vector2(fac, fac)
+
 func style0():
 #	print("heavy ball")
 	$Sprite.frame = 0
-	weight = 100 
+	weight = 100
 
 func style1():
 #	print("low bounce ball")
