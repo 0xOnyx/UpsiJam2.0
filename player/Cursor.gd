@@ -19,7 +19,8 @@ export var size = (Vector2(0.125, 0.125))
 onready var flagPacked = preload("res://blocker/blocker.tscn")
 onready var sprite;
 onready var place = $block;
-var random : int;
+var preview= [randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2];
+
 var mirror = false
 var can_play = true;
 var speed : int;
@@ -38,8 +39,11 @@ func _ready():
 	pass 
 
 func pick():
+	var random = preview.pop_front()
+
 	randomize();
-	random = randi() % 2;
+	preview.append(randi() % 2);
+	print(preview)
 	if (random == 0):
 		sprite = load("res://blocker/bouncy_asset.png")
 	else:
@@ -60,13 +64,13 @@ func _physics_process(delta):
 		else:
 			place.rotation_degrees = .0
 	if Input.is_action_pressed(inputs["right"]):
-		 position.x += speed;
+		 vel.x += 300;
 	if Input.is_action_pressed(inputs["left"]):
-		position.x -= speed ;
+		vel.x -= 300 ;
 	if Input.is_action_pressed(inputs["down"]):
-		position.y += speed ;
+		vel.y += 300 ;
 	if Input.is_action_pressed(inputs["up"]):
-		position.y -= speed ;
+		vel.y -= 300 ;
 		
 	
 	if player == "2" && position.x < get_viewport().size.x / 2 + speed:
@@ -75,6 +79,8 @@ func _physics_process(delta):
 		position.x = get_viewport().size.x / 2 - speed;
 	if position.x < speed:
 		position.x = speed;
+		
+	vel = move_and_slide(vel, Vector2.UP)
 	if position.x > get_viewport().size.x - speed:
 		position.x = get_viewport().size.x - speed;
 	if position.y < speed:
@@ -85,7 +91,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed(inputs["place"]) && can_play:
 		can_play = false;
 		var block = flagPacked.instance();
-		block.init(random)
+		block.init(preview[0])
 		block.position = position;
 		block.rotation_degrees = place.rotation_degrees;
 		block.scale = place.scale;
