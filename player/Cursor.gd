@@ -19,7 +19,9 @@ export var size = (Vector2(0.125, 0.125))
 onready var flagPacked = preload("res://blocker/blocker.tscn")
 onready var sprite;
 onready var place = $block;
-var preview= [randi() % 3,randi() % 3,randi() % 3,randi() % 3,randi() % 3];
+
+var preview= [randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2];
+
 
 var mirror = false
 var can_play = true;
@@ -35,8 +37,9 @@ func _ready():
 	$CollisionShape2D.scale = size
 	place.rotation_degrees = 90 + (0 if preview[0] != 2 else 90) if (player == "1") else 0
 	mirror = true if (player == "1") else false
-	
+
 	speed  = $CollisionShape2D.shape.extents.x * size.x;
+
 	pass 
 
 func pick():

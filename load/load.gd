@@ -20,8 +20,8 @@ onready var elementText = get_node("RichTextLabel")
 func _on_Timer_timeout():
 	if (!realtime.is_stopped()) : 
 		elementText.set_percent_visible(float(current_time) / float(max_time))
-		print(float(current_time) / float(max_time))
 	else:
+		time.stop()
 		get_tree().change_scene("res://effect/effect.tscn")
 
 func _on_RealTime_timeout():

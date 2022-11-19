@@ -1,44 +1,54 @@
 extends Position2D
 
-var max_time = 10
-var min_time = 3
-var current_time = max_time
 var style = -1
+var growth_rate  = .9
+var number_of_balls = 30
+var duration = 15
+var i = 0
+var foo
 
-onready var realtime = get_node("RealTime")
-onready var time = get_node("Timer")
+onready var timer = get_node("Timer")
 onready var Ball = load("res://ball/ball.tscn")
-	
-func calc_time():
-	var current_time_pow = pow(current_time, 2)
-	var max_time_pow = pow(max_time, 2) / 2
-	return (current_time_pow / max_time_pow)
 
 func _ready():
-	var set_time_value = calc_time()
-	realtime.start(set_time_value)
-	time.start(1)
+	initlong(duration, growth_rate, number_of_balls)
+	timer.start(duration)
 	
+func initn(level_of_insanity):
+#	use n to call the other init function
+	initlong(duration , 
+	growth_rate, 
+	number_of_balls * (1 + level_of_insanity)) # something tumes insanity to
+#	timer.start(duration)
+
+func initlong(d, g, n):
+	growth_rate  = g
+	number_of_balls = n
+	duration = d
+#	timer.start(duration)
+	foo = []
+	for x in range(0, number_of_balls + 1):
+		foo.append(pow(x,growth_rate)/pow(number_of_balls, growth_rate))
+#		print(pow(x,growth_rate)/pow(number_of_balls, growth_rate))
 
 func _process(delta):
-	pass
+	if  i <= number_of_balls && foo[i] * duration < duration - timer.get_time_left():
+		i = i + 1
+#		print("spawn a ball with", timer.get_time_left())
+		spawn_ball()
 
 
-func _on_Timer_timeout():
-	if (!realtime.is_stopped()) : 
-		var set_time_value = calc_time()
-		time.set_wait_time(calc_time());
-		var ball = Ball.instance()
-		if (style == -1):
-			randomize()
-			style = randi() % ball.numbersBalls
-		ball.init(style)
-		ball.position = position;
+func spawn_ball():
+	var ball = Ball.instance()
+	if (style == -1):
+		randomize()
+		style = randi() % ball.numbersBalls
+	ball.init(style)
+	ball.position = position;
+	if get_parent().get_parent() != null:
 		get_parent().get_parent().get_node("BallBag").add_child(ball)
 	else:
-		get_tree().change_scene("res://level/level.tscn")
+		.add_child(ball)
 
-func _on_RealTime_timeout():
-	if (current_time <= min_time): 
-		realtime.stop()
-	current_time -= 1
+func _on_Timer_timeout():
+	queue_free()

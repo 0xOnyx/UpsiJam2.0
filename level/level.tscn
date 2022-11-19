@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://level/level.gd" type="Script" id=1]
 [ext_resource path="res://score/score.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/Cursor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://blocker/bouncy_asset(2).png" type="Texture" id=4]
 [ext_resource path="res://level/white_line.png" type="Texture" id=5]
+[ext_resource path="res://spawn_tester/spawn_tester.tscn" type="PackedScene" id=6]
+[ext_resource path="res://level/Mountain-Dusk.png" type="Texture" id=7]
+[ext_resource path="res://level/num.png" type="Texture" id=8]
 
 [sub_resource type="GDScript" id=3]
 script/source = "extends StaticBody2D
@@ -30,6 +33,23 @@ extents = Vector2( 89.5, 331.5 )
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
+
+[node name="Mountain-Dusk" type="Sprite" parent="."]
+position = Vector2( 520, 368 )
+scale = Vector2( 3.33333, 3.33333 )
+texture = ExtResource( 7 )
+
+[node name="Num" type="Sprite" parent="."]
+position = Vector2( 352, 64 )
+scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 8 )
+offset = Vector2( -157.692, 190.769 )
+
+[node name="Num2" type="Sprite" parent="."]
+position = Vector2( 736, 63 )
+scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 8 )
+offset = Vector2( -157.692, 190.769 )
 
 [node name="Cursor" parent="." instance=ExtResource( 3 )]
 position = Vector2( 320, 320 )
@@ -60,6 +80,8 @@ margin_right = 736.0
 margin_bottom = 112.0
 rect_pivot_offset = Vector2( 32, 16 )
 
+[node name="SpawnTester" parent="." instance=ExtResource( 6 )]
+
 [node name="Node" type="Node" parent="."]
 
 [node name="WhiteLine" type="Sprite" parent="Node"]
@@ -85,10 +107,6 @@ position = Vector2( 14.222, 494.222 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 5 )
 offset = Vector2( 1991.11, 199.111 )
-
-[node name="SpawnerMatchTimer" type="Timer" parent="."]
-
-[node name="SpawnerTimer" type="Timer" parent="."]
 
 [node name="RightPadding" type="StaticBody2D" parent="."]
 collision_layer = 3
@@ -153,6 +171,7 @@ flip_h = true
 margin_top = 380.0
 margin_right = 116.0
 margin_bottom = 472.0
+
 size_flags_vertical = 3
 texture = ExtResource( 4 )
 expand = true
@@ -174,10 +193,10 @@ default_color = Color( 0.772549, 0.780392, 0.823529, 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LeftPadding"]
 anchor_right = 1.0
-margin_left = -155.0
-margin_top = 100.0
-margin_right = -5.0
-margin_bottom = 600.0
+margin_left = -104.0
+margin_top = 21.0
+margin_right = -22.0
+margin_bottom = 625.0
 
 [node name="TextureRect0" type="TextureRect" parent="LeftPadding/VBoxContainer"]
 margin_right = 150.0
@@ -224,5 +243,11 @@ texture = ExtResource( 4 )
 expand = true
 stretch_mode = 5
 
-[connection signal="timeout" from="SpawnerMatchTimer" to="." method="_on_SpawnerMatchTimer_timeout"]
-[connection signal="timeout" from="SpawnerTimer" to="." method="_on_SpawnerTimer_timeout"]
+[node name="TextureRect5" type="TextureRect" parent="LeftPadding/VBoxContainer"]
+margin_top = 486.0
+margin_right = 82.0
+margin_bottom = 604.0
+size_flags_vertical = 3
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 5
