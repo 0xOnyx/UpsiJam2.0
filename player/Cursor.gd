@@ -58,7 +58,7 @@ func pick():
 	place.texture = sprite
 	preview.append(randi() % 3);
 	var i = 0;
-	while i < 5:
+	while i < 4:
 		var texture = load("res://blocker/bouncy_asset.png")
 		if (preview[i] == 1):
 			texture = load("res://blocker/sticky_asset.png")
