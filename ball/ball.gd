@@ -5,15 +5,15 @@ extends RigidBody2D
 # var a = 2
 # var b = "text"
 
-export (float) var bounce_factor
 # also the mass which dictaes 
 export (int) var style
 
+
+var out = 1;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#if bounce_factor == null:
-	#		bounce_factor = .5
-	#.set_bounce(bounce_factor)
+	.set_bounce(.5)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -8,12 +8,12 @@ func _ready():
 	pass
 
 func _process(delta):
-	var ball = Ball.instance();
-	var x = int(rand_range(0, 512))
-	print(x);
-	ball.position = Vector2(x, 0);
-	add_child(ball);
-	
+	pass;
 
-	
-	
+func _on_Timer_timeout():
+	randomize()
+	var ball = Ball.instance()
+	var x = randi() % 512;
+	ball.position = Vector2(x, 0)
+#	ball.style = randi() %  ball.style_nums
+	add_child(ball)
