@@ -8,7 +8,6 @@ extends StaticBody2D
 onready var bouncy_sprite = preload("res://blocker/bouncy_asset.png")
 onready var sticky_sprite = preload("res://blocker/sticky_asset.png")
 onready var git_merge_right = preload("res://blocker/git_merge/git_merge_right.png")
-onready var bouncy_sound = preload("res://audio/bouncy.mp3")
 #onready var sticky_sound = preload("res://audio/sticky.mp3")
 var blocker_type;
 
@@ -26,7 +25,6 @@ func init(var type:int):
 
 	if (type == 0):
 		get_node("Sprite").texture = bouncy_sprite
-		$AudioStreamPlayer2D.stream = bouncy_sound
 		blocker_type = 0;
 		enable_rect()
 		.set_bounce(0)

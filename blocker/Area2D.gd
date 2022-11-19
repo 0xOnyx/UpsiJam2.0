@@ -6,7 +6,6 @@ extends Area2D
 # var b = "text"
 var hit = 0
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -18,10 +17,11 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
-	get_parent().get_node("AudioStreamPlayer2D").play()
+	
 	if body is KinematicBody2D:
 		body.can_play = false;
 		return;
+	$Bouncy.play()
 	hit += 1
 	if hit == 15:
 		get_parent().modulate.a = .8
