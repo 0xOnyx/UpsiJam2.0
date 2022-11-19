@@ -5,8 +5,6 @@
 [ext_resource path="res://blocker/Area2D.gd" type="Script" id=3]
 
 [node name="Blocker" type="StaticBody2D"]
-collision_layer = 3
-collision_mask = 3
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -25,9 +23,9 @@ collision_mask = 3
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D3" type="CollisionPolygon2D" parent="Area2D"]
-position = Vector2( 6, -5 )
+position = Vector2( -11, -14 )
 rotation = 1.5708
-scale = Vector2( 4.27755, 4.18036 )
+scale = Vector2( 4.55171, 4.77184 )
 build_mode = 1
 polygon = PoolVector2Array( 28.2873, 32.5329, -29.2224, -26.7918, 27.9999, -27.0001 )
 
