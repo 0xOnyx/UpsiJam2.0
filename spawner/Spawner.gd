@@ -3,7 +3,7 @@ extends Position2D
 var max_time = 10
 var min_time = 3
 var current_time = max_time
-
+var style = -1
 
 onready var realtime = get_node("RealTime")
 onready var time = get_node("Timer")
@@ -18,10 +18,10 @@ func _ready():
 	var set_time_value = calc_time()
 	realtime.start(set_time_value)
 	time.start(1)
+	
 
 func _process(delta):
 	pass
-
 
 func _on_Timer_timeout():
 	if (!realtime.is_stopped()) : 
