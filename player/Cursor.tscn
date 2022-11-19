@@ -20,3 +20,9 @@ shape = SubResource( 1 )
 
 [node name="block" type="Sprite" parent="."]
 rotation = 1.5708
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[connection signal="resized" from="Control" to="." method="_on_Control_resized"]

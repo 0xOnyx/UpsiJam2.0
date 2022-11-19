@@ -13,4 +13,9 @@ script = ExtResource( 1 )
 one_shot = true
 autostart = true
 
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer_timeout"]
+[connection signal="resized" from="Control" to="." method="_on_Control_resized"]

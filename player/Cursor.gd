@@ -27,8 +27,14 @@ var mirror = false
 var can_play = true;
 var speed : int;
 
+var top_offset = 120 # need to copy the setting from the spawn_tester.gd if you change this
+var side_padding = 220
+var middle_padding = 60
+var left_player = Vector2(120, 200)
+var right_player = Vector2(300, 500)
 
 func _ready():
+	_resized()
 	pick()
 	position = Vector2(get_viewport().size.x / 2,get_viewport().size.y / 2)
 
@@ -95,13 +101,8 @@ func _physics_process(delta):
 	if Input.is_action_pressed(inputs["up"]):
 		vel.y -= 300 ;
 		
-	
-	if player == "2" && position.x < get_viewport().size.x / 2 + speed:
-		position.x = get_viewport().size.x / 2 + speed;
-	if player == "1" && position.x > get_viewport().size.x / 2 - speed:
-		position.x = get_viewport().size.x / 2 - speed;
-	if position.x < speed:
-		position.x = speed;
+	var limit = left_player if (player == "1") else right_player;
+
 		
 	vel = move_and_slide(vel, Vector2.UP)
 	if position.x > get_viewport().size.x - speed:
@@ -121,6 +122,15 @@ func _physics_process(delta):
 		block.get_node("Sprite").texture = sprite;
 		get_parent().get_node("BlockerBag").add_child(block);
 		pick();
+	if (position.x > limit.y):
+		position.x = limit.y
+		
+	if (position.x < limit.x):
+		position.x = limit.x
 		
 
-	#vel = move_and_slide(vel, Vector2.UP);
+func _resized():
+	left_player.x = side_padding
+	left_player.y = .get_viewport().size.x/2 - middle_padding
+	right_player.x = .get_viewport().size.x/2 + middle_padding
+	right_player.y = .get_viewport().size.x - side_padding
