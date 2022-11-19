@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Upsi Jam 2 . 0"
-run/main_scene="res://level/level.tscn"
+run/main_scene="res://startscreen/StartScreen.tscn"
 config/icon="res://icon.png"
 
 [display]
