@@ -28,7 +28,7 @@ var speed : int;
 
 func _ready():
 	pick()
-	position = Vector2(0,0)
+	position = Vector2(get_viewport().size.x / 2,get_viewport().size.y / 2)
 
 	place.scale = size
 	$Sprite.scale = size
@@ -42,12 +42,25 @@ func pick():
 
 	randomize();
 	preview.append(randi() % 2);
-	print(preview)
+
 	if (random == 0):
 		sprite = load("res://blocker/bouncy_asset.png")
 	else:
 		sprite = load("res://blocker/sticky_asset.png")
 	place.texture = sprite
+
+	var i = 0;
+	while i < 3:
+		var texture = load("res://blocker/bouncy_asset.png")
+		if (preview[i] == 1):
+			texture = load("res://blocker/sticky_asset.png")
+		if (player == "1"):
+			get_parent().get_node("RightPadding").get_node("VBoxContainer").get_node("TextureRect" + str(i+1)).texture = texture;
+		else:
+			get_parent().get_node("LeftPadding").get_node("VBoxContainer").get_node("TextureRect" + str(i+1)).texture = texture;
+				
+		i+=1
+
 
 func _physics_process(delta):
 	modulate.a = 0.8
