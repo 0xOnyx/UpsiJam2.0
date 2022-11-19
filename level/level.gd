@@ -37,7 +37,7 @@ func _process(delta):
 onready var timer = get_node("Timer")
 
 func _on_Timer_timeout():
-	print("ok")
+	# print("ok")
 	if (current_time >= 0):
 		current_time -= 1
 		timing[0].text = str(current_time % 60)

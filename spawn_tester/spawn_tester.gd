@@ -41,7 +41,7 @@ func spawn_spawner():
 		p = int(rand_range(left_player.x, left_player.y))
 	spawner.position = Vector2(p, top_offset)
 	get_node("SpawnerBag").add_child(spawner)
-	print("tried to make a spawner here", spawner, spawner.position)
+	# print("tried to make a spawner here", spawner, spawner.position)
 	
 func _on_Timer_timeout():
 	queue_free()
