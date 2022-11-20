@@ -88,7 +88,7 @@ func pick():
 		if (preview[i] == 2):
 			texture = load("res://blocker/git_merge/git_merge_right.png")
 		if preview[i] == 3:
-			texture = load("res://blocker/gargabe.png")	
+			texture = load("res://blocker/garbage.png")	
 		if (player == "1"):
 			get_parent().get_node("RightPadding").get_node("VBoxContainer").get_node("TextureRect" + str(i)).texture = texture;	
 		else:
