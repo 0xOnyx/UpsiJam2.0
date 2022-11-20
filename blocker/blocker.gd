@@ -49,9 +49,6 @@ func enable_poly():
 	$TriangleArea/rect.disabled = true
 
 
-
-
-
 func init(var type:int,var player):
 	.set_bounce(.5)
 	if (type == 0):
