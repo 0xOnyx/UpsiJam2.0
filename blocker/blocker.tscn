@@ -162,8 +162,8 @@ polygon = PoolVector2Array( 39.1464, 27.2343, 38.4194, 28.0172, 37.4687, 28.3527
 disabled = true
 
 [node name="TriangleArea" type="Area2D" parent="."]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 7
+collision_mask = 7
 audio_bus_override = true
 script = ExtResource( 3 )
 
