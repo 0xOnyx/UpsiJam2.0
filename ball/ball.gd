@@ -4,7 +4,7 @@ extends RigidBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-onready var size_pos = get_viewport().size.x
+onready var size_pos = get_tree().get_root().size.x
 
 var bounce_factor
 var numbersBalls = 4
