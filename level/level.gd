@@ -2,7 +2,7 @@ extends Node2D
 
 
 # make game length
-var max_time = 180
+var max_time = 102
 var current_time = max_time
 
 
