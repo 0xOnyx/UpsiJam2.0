@@ -140,6 +140,7 @@ script = ExtResource( 2 )
 texture = ExtResource( 1 )
 
 [node name="rect" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -0.945395, 8.00695 )
 rotation = 1.5708
 scale = Vector2( 4.278, 4.5 )
@@ -147,13 +148,14 @@ shape = SubResource( 6 )
 disabled = true
 
 [node name="commit" type="CollisionShape2D" parent="."]
-position = Vector2( 5.97986, -3.04246 )
-rotation = 0.788889
-scale = Vector2( 4.27755, 4.18036 )
+position = Vector2( 5.98557, -2.04103 )
+rotation = 0.771436
+scale = Vector2( 3.278, 4.079 )
 shape = SubResource( 6 )
 disabled = true
 
 [node name="poly" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2( 5, 22 )
 rotation = 1.5708
 scale = Vector2( 7.37745, 8.91669 )
@@ -168,13 +170,14 @@ audio_bus_override = true
 script = ExtResource( 3 )
 
 [node name="commit" type="CollisionShape2D" parent="TriangleArea"]
-position = Vector2( 5.98557, -2.04103 )
-rotation = 0.771436
-scale = Vector2( 3.278, 4.079 )
+position = Vector2( 5.97986, -3.04246 )
+rotation = 0.788889
+scale = Vector2( 4.27755, 4.18036 )
 shape = SubResource( 6 )
 disabled = true
 
 [node name="rect" type="CollisionShape2D" parent="TriangleArea"]
+visible = false
 position = Vector2( -0.952553, 11.0131 )
 rotation = 1.5708
 scale = Vector2( 4.55171, 4.77184 )
@@ -182,6 +185,7 @@ shape = SubResource( 7 )
 disabled = true
 
 [node name="poly" type="CollisionPolygon2D" parent="TriangleArea"]
+visible = false
 position = Vector2( 5, 22 )
 rotation = 1.5708
 scale = Vector2( 7.37745, 8.91669 )
