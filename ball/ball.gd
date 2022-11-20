@@ -10,7 +10,7 @@ var bounce_factor
 var numbersBalls = 4
 var was_blackholed = false;
 var out = 1;
-
+var label = "Bid dicked Shai"
 # Called when the node enters the scene tree for the first time.
 #func _ready():
 #	scale = Vector2(.5, .5)
@@ -39,12 +39,16 @@ func style0():
 #	print("heavy ball")
 	$Sprite.frame = 0
 	$"0".disabled = false
+	label = "Bus Erorr";
 	weight = 100
 
 func style1():
 #	print("low bounce ball")
 	$Sprite.frame = 1
 	$"1".disabled = false
+
+	
+	label = "misplaced Built in type"
 	bounce_factor = .1
 
 func style2():
@@ -52,14 +56,17 @@ func style2():
 	$Sprite.frame = 2
 	$"2".disabled = false
 	bounce_factor = .5
+	label = "A SNAKE IN MY SHOES"
 
 func style3():
 #	print("high bounce ball")
 	$Sprite.frame = 3
 	$"3".disabled = false
 	bounce_factor = .9
+	label = "Permissions denied"
 
-
+func get_name():
+	return label
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
 	size_pos = get_tree().get_root().size.x
