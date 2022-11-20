@@ -37,7 +37,7 @@ extents = Vector2( 89.5, 331.5 )
 script = ExtResource( 1 )
 
 [node name="BackGround1" type="Sprite" parent="."]
-position = Vector2( 508, 321 )
+position = Vector2( 508, 326 )
 scale = Vector2( 1.43333, 1.43333 )
 texture = ExtResource( 7 )
 
@@ -83,18 +83,18 @@ size = Vector2( 0.2, 0.2 )
 
 [node name="score1" parent="." instance=ExtResource( 2 )]
 margin_left = 463.0
-margin_top = 79.0
+margin_top = 87.0
 margin_right = 607.0
-margin_bottom = 143.0
+margin_bottom = 151.0
 rect_pivot_offset = Vector2( 32, 16 )
 
 [node name="score2" parent="." instance=ExtResource( 2 )]
 anchor_right = 0.321
 anchor_bottom = 0.275
 margin_left = 783.0
-margin_top = 80.0
+margin_top = 91.0
 margin_right = 926.0
-margin_bottom = 144.0
+margin_bottom = 155.0
 rect_pivot_offset = Vector2( 32, 16 )
 
 [node name="SpawnTester" parent="." instance=ExtResource( 6 )]

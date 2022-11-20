@@ -7,7 +7,7 @@ var i = 0
 var foo
 
 onready var top_offset = 170 # need to copy thi wth Cursor.gd if you change this
-onready var side_padding = 300
+onready var side_padding = 270
 onready var middle_padding = 60
 onready var left_player = Vector2(120, 200)
 onready var right_player = Vector2(300, 500)
