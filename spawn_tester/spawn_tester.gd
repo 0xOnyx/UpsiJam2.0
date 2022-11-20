@@ -1,12 +1,12 @@
 extends Node2D
 
-var growth_rate  = .2
+var growth_rate  = .9
 var number_of_leaks = 50
 onready var match_duration = get_parent().max_time
 var i = 0
 var foo
 
-onready var top_offset = 120 # need to copy thi wth Cursor.gd if you change this
+onready var top_offset = 170 # need to copy thi wth Cursor.gd if you change this
 onready var side_padding = 300
 onready var middle_padding = 60
 onready var left_player = Vector2(120, 200)
