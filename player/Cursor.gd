@@ -20,8 +20,7 @@ onready var flagPacked = preload("res://blocker/blocker.tscn")
 onready var sprite;
 onready var place = $block;
 
-var preview= [randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4];
-
+var preview = []
 
 var mirror = false
 var can_play = true;
@@ -35,6 +34,8 @@ onready var right_player = Vector2(300, 500)
 
 func _ready():
 	_resized()
+	randomize()
+	preview = [randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4];	
 	pick()
 	position = Vector2(get_viewport().size.x / 2,get_viewport().size.y / 2)
 
@@ -68,7 +69,7 @@ func pick():
 		place.hframes = 16
 		place.frame = 0;
 	else:
-		place.hframes = 1					
+		place.hframes = 1
 	preview.append(randi() % 4);
 	var i = 0;
 	while i < 4:
@@ -89,13 +90,14 @@ func pick():
 
 func _physics_process(delta):
 	modulate.a = 0.8
-	place.scale = size	
 	if (preview[0] == 3):
 		place.hframes = 16
 		place.frame = 0
 		place.scale = Vector2(1,1)
 		mirror = false
 		place.rotation_degrees = 0
+	else:
+		place.scale = size
 	vel.x = 0;
 	vel.y = 0;
 	if Input.is_action_just_pressed(inputs["mirror"]):
@@ -130,12 +132,14 @@ func _physics_process(delta):
 		var type = block.init(preview.pop_front(), player)
 		block.position = position;
 		block.rotation_degrees = place.rotation_degrees;
+		block.scale = size	
 		if (type == 3):
 			block.scale = size
 		else:
 			block.scale = place.scale
 		block.get_node("Sprite").texture = sprite;
 		get_parent().get_node("BlockerBag").add_child(block);
+		place.scale = size
 		pick();
 	if (position.x > limit.y):
 		position.x = limit.y

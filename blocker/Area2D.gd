@@ -22,8 +22,10 @@ func _on_Area2D_body_entered(body):
 		body.can_play = false;
 		return;
 	if get_parent().blocker_type == 3 && body is RigidBody2D:
+		body.was_blackholed = true;
 		body.queue_free();
-	$Bouncy.play()
+	if (body is RigidBody2D && $Bouncy.get_playback_position() == 0):
+		$Bouncy.play()
 	hit += 1
 	if (get_parent().blocker_type == 3 && hit % 2 == 0):
 		get_parent().get_node("Sprite").frame+= 1
