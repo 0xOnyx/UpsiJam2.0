@@ -19,10 +19,16 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="PlayerLeft" type="Node2D" parent="."]
-position = Vector2( 236, 118 )
+position = Vector2( 247, 118 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="PlayerRight" type="Node2D" parent="."]
-position = Vector2( 569, 119 )
+position = Vector2( 578, 120 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Label" type="Label" parent="."]
 margin_right = 40.0
