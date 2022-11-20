@@ -3,7 +3,7 @@ extends Node2D
 var score1 = 0
 var score2 = 0
 # make game length
-var max_time = 3000
+var max_time = 300
 var current_time = max_time
 
 
