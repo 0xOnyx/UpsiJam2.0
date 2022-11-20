@@ -358,10 +358,12 @@ margin_top = 86.0
 margin_right = 935.0
 margin_bottom = 259.0
 custom_fonts/font = SubResource( 7 )
-text = "Your files is going to over overwhelmed you, make sure to delegate to your coworker.
+text = "Your files are going to overwhelmed you,
+ make sure to delegate to your coworker
+as much as possible !
 
 The winner is the one
- with the least files passing though his side."
+ with the least files passing though their sides."
 align = 1
 valign = 1
 autowrap = true
@@ -379,7 +381,7 @@ custom_fonts/font = SubResource( 7 )
 text = "Coworker of the right
 
 I
-JKL
+J.K.L
 to move your Cursor
 
 O
