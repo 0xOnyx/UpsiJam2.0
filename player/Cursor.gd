@@ -89,13 +89,14 @@ func pick():
 
 func _physics_process(delta):
 	modulate.a = 0.8
-	place.scale = size	
 	if (preview[0] == 3):
 		place.hframes = 16
 		place.frame = 0
 		place.scale = Vector2(1,1)
 		mirror = false
 		place.rotation_degrees = 0
+	else:
+		place.scale = size
 	vel.x = 0;
 	vel.y = 0;
 	if Input.is_action_just_pressed(inputs["mirror"]):
@@ -130,12 +131,14 @@ func _physics_process(delta):
 		var type = block.init(preview.pop_front(), player)
 		block.position = position;
 		block.rotation_degrees = place.rotation_degrees;
+		block.scale = size	
 		if (type == 3):
 			block.scale = size
 		else:
 			block.scale = place.scale
 		block.get_node("Sprite").texture = sprite;
 		get_parent().get_node("BlockerBag").add_child(block);
+		place.scale = size
 		pick();
 	if (position.x > limit.y):
 		position.x = limit.y
