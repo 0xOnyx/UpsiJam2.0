@@ -21,7 +21,7 @@ func _ready():
 	_resized()
 	for x in range(0, number_of_leaks + 1):
 		foo.append(pow(x,growth_rate)/pow(number_of_leaks, growth_rate))
-		print(pow(x,growth_rate)/pow(number_of_leaks, growth_rate))
+		#print(pow(x,growth_rate)/pow(number_of_leaks, growth_rate))
 	
 func _process(delta):
 	if foo[i] * match_duration < match_duration - timer.get_time_left():

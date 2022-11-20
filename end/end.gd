@@ -27,6 +27,8 @@ func _ready():
 
 func _process(delta):
 	if (Input.is_action_just_pressed("1_select")):
+		Globals.set("score1", 0)
+		Globals.set("score2", 0)
 		get_tree().change_scene("res://effect/effect.tscn")
 
 func _on_player_finished():
