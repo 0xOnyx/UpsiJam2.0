@@ -17,10 +17,6 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
-	
-	if body is KinematicBody2D:
-		body.can_play = false;
-		return;
 	if get_parent().blocker_type == 3 && body is RigidBody2D:
 		body.was_blackholed = true;
 		body.queue_free();
@@ -37,10 +33,4 @@ func _on_Area2D_body_entered(body):
 		get_parent().modulate.a = .6
 	if hit == 20:
 		get_parent().queue_free()
-	pass # Replace with function body.
 
-
-func _on_Area2D_body_exited(body):
-	if body is KinematicBody2D:
-		body.can_play = true;
-	pass # Replace with function body.

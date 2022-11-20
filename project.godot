@@ -20,7 +20,11 @@ Globals="*res://Globals.gd"
 
 [display]
 
+<<<<<<< HEAD
 window/size/height=640
+=======
+window/size/height=620
+>>>>>>> 0c8e87ef0589239e3fa339e2afa5d5a603169a3d
 window/size/resizable=false
 window/stretch/mode="2d"
 window/stretch/aspect="keep"

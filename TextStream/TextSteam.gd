@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 var timeAlive = 2
 var time = .1
@@ -8,8 +8,9 @@ var i = 1
 onready var wait = $wait
 
 func _ready():
-	init("./this is a long test")
-
+#	init("./this is a long test")
+	pass
+	
 func init(text_stream):
 	lable.set_text(text_stream)
 	timer.set_wait_time(time)

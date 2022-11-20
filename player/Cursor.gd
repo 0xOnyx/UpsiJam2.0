@@ -21,9 +21,9 @@ onready var sprite;
 onready var place = $block;
 
 var preview = []
+var blockers = []
 
 var mirror = false
-var can_play = true;
 var speed : int;
 
 onready var top_offset = 120 # need to copy the setting from the spawn_tester.gd if you change this
@@ -49,6 +49,15 @@ func _ready():
 
 	pass 
 
+func can_play():
+	for block in blockers:
+		if(weakref(block).get_ref()):
+			for body in block.get_node("TriangleArea").get_overlapping_bodies():
+				if ("player" in body):
+					return (false);
+		else:
+			blockers.erase(block)
+	return (true)
 func pick():
 	var random = preview[0]
 
@@ -126,9 +135,9 @@ func _physics_process(delta):
 	if position.y > get_viewport().size.y - speed:
 		position.y = get_viewport().size.y - speed;
 		
-	if Input.is_action_just_pressed(inputs["place"]) && can_play:
-		can_play = false;
+	if Input.is_action_just_pressed(inputs["place"]) && can_play():
 		var block = flagPacked.instance();
+		blockers.append(block)
 		var type = block.init(preview.pop_front(), player)
 		block.position = position;
 		block.rotation_degrees = place.rotation_degrees;
