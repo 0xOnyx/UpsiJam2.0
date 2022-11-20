@@ -1,7 +1,7 @@
 extends Node2D
 
-var growth_rate  = .4
-var number_of_leaks = 100
+var growth_rate  = .2
+var number_of_leaks = 50
 onready var match_duration = get_parent().max_time
 var i = 0
 var foo
