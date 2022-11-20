@@ -1,12 +1,12 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://level/level.gd" type="Script" id=1]
 [ext_resource path="res://score/score.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/Cursor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://blocker/bouncy_asset(2).png" type="Texture" id=4]
-[ext_resource path="res://font/clacon2.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://font/timer.tres" type="DynamicFont" id=5]
 [ext_resource path="res://spawn_tester/spawn_tester.tscn" type="PackedScene" id=6]
-[ext_resource path="res://level/back_ground_1.png" type="Texture" id=7]
+[ext_resource path="res://level/back_ground_2.png" type="Texture" id=7]
 [ext_resource path="res://level/compteur.png" type="Texture" id=9]
 [ext_resource path="res://level/box.png" type="Texture" id=10]
 [ext_resource path="res://level/timer_1.png" type="Texture" id=11]
@@ -33,10 +33,6 @@ extents = Vector2( 90, 331.5 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 89.5, 331.5 )
 
-[sub_resource type="DynamicFont" id=4]
-size = 40
-font_data = ExtResource( 5 )
-
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -46,19 +42,22 @@ scale = Vector2( 1.43333, 1.43333 )
 texture = ExtResource( 7 )
 
 [node name="Compteur" type="Sprite" parent="."]
+visible = false
 position = Vector2( 288, 21 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
 offset = Vector2( 48, 80 )
 
 [node name="Compteur2" type="Sprite" parent="."]
+visible = false
 position = Vector2( 680, 21 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
 offset = Vector2( 48, 80 )
 
 [node name="Timer1" type="Sprite" parent="."]
-position = Vector2( 512, 152 )
+visible = false
+position = Vector2( 506, 34 )
 scale = Vector2( 0.59375, 0.59375 )
 texture = ExtResource( 11 )
 
@@ -83,17 +82,19 @@ size = Vector2( 0.2, 0.2 )
 [node name="BlockerBag" type="Node" parent="."]
 
 [node name="score1" parent="." instance=ExtResource( 2 )]
-margin_left = 237.0
-margin_top = 32.0
-margin_right = 381.0
-margin_bottom = 96.0
+margin_left = 463.0
+margin_top = 79.0
+margin_right = 607.0
+margin_bottom = 143.0
 rect_pivot_offset = Vector2( 32, 16 )
 
 [node name="score2" parent="." instance=ExtResource( 2 )]
-margin_left = 630.0
-margin_top = 32.0
-margin_right = 773.0
-margin_bottom = 96.0
+anchor_right = 0.321
+anchor_bottom = 0.275
+margin_left = 783.0
+margin_top = 80.0
+margin_right = 926.0
+margin_bottom = 144.0
 rect_pivot_offset = Vector2( 32, 16 )
 
 [node name="SpawnTester" parent="." instance=ExtResource( 6 )]
@@ -109,14 +110,14 @@ shape = SubResource( 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="RightPadding"]
 anchor_right = 1.0
-margin_left = 73.0
+margin_left = 69.0
 margin_top = 120.0
-margin_right = 135.0
-margin_bottom = 648.0
+margin_right = 130.0
+margin_bottom = 647.0
 
 [node name="TextureRect0" type="TextureRect" parent="RightPadding/VBoxContainer"]
-margin_right = 62.0
-margin_bottom = 129.0
+margin_right = 61.0
+margin_bottom = 128.0
 size_flags_vertical = 3
 texture = ExtResource( 4 )
 expand = true
@@ -124,9 +125,9 @@ stretch_mode = 5
 flip_h = true
 
 [node name="TextureRect1" type="TextureRect" parent="RightPadding/VBoxContainer"]
-margin_top = 133.0
-margin_right = 62.0
-margin_bottom = 262.0
+margin_top = 132.0
+margin_right = 61.0
+margin_bottom = 261.0
 size_flags_vertical = 3
 texture = ExtResource( 4 )
 expand = true
@@ -134,9 +135,9 @@ stretch_mode = 5
 flip_h = true
 
 [node name="TextureRect2" type="TextureRect" parent="RightPadding/VBoxContainer"]
-margin_top = 266.0
-margin_right = 62.0
-margin_bottom = 395.0
+margin_top = 265.0
+margin_right = 61.0
+margin_bottom = 394.0
 size_flags_vertical = 3
 texture = ExtResource( 4 )
 expand = true
@@ -144,9 +145,9 @@ stretch_mode = 5
 flip_h = true
 
 [node name="TextureRect3" type="TextureRect" parent="RightPadding/VBoxContainer"]
-margin_top = 399.0
-margin_right = 62.0
-margin_bottom = 528.0
+margin_top = 398.0
+margin_right = 61.0
+margin_bottom = 527.0
 size_flags_vertical = 3
 texture = ExtResource( 4 )
 expand = true
@@ -164,10 +165,10 @@ shape = SubResource( 2 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LeftPadding"]
 anchor_right = 1.0
-margin_left = -133.0
-margin_top = 123.0
-margin_right = -81.0
-margin_bottom = 651.0
+margin_left = -135.0
+margin_top = 125.0
+margin_right = -83.0
+margin_bottom = 653.0
 
 [node name="TextureRect0" type="TextureRect" parent="LeftPadding/VBoxContainer"]
 margin_right = 52.0
@@ -204,23 +205,38 @@ texture = ExtResource( 4 )
 expand = true
 stretch_mode = 5
 
+[node name="Timer1" type="Sprite" parent="."]
+visible = false
+position = Vector2( 512, 152 )
+scale = Vector2( 0.59375, 0.59375 )
+texture = ExtResource( 11 )
+
 [node name="timing" type="Node2D" parent="."]
+position = Vector2( 1, 1 )
 
 [node name="min" type="Label" parent="timing"]
-margin_left = 458.0
-margin_top = 154.0
-margin_right = 498.0
-margin_bottom = 187.0
-custom_fonts/font = SubResource( 4 )
+margin_left = 32.0
+margin_top = 22.0
+margin_right = 78.0
+margin_bottom = 63.0
+custom_fonts/font = ExtResource( 5 )
 text = "99"
 align = 1
 
+[node name="Label" type="Label" parent="timing"]
+margin_left = 83.0
+margin_top = 19.0
+margin_right = 123.0
+margin_bottom = 60.0
+custom_fonts/font = ExtResource( 5 )
+text = ":"
+
 [node name="sec" type="Label" parent="timing"]
-margin_left = 525.0
-margin_top = 154.0
-margin_right = 565.0
-margin_bottom = 187.0
-custom_fonts/font = SubResource( 4 )
+margin_left = 97.0
+margin_top = 22.0
+margin_right = 143.0
+margin_bottom = 63.0
+custom_fonts/font = ExtResource( 5 )
 text = "99"
 
 [node name="Timer" type="Timer" parent="."]

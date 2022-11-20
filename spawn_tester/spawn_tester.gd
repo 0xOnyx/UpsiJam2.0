@@ -1,16 +1,16 @@
 extends Node2D
 
-var growth_rate  = .5
-var number_of_leaks = 90
-var match_duration = 200
+var growth_rate  = .4
+var number_of_leaks = 100
+onready var match_duration = get_parent().max_time
 var i = 0
 var foo
 
-var top_offset = 120 # need to copy thi wth Cursor.gd if you change this
-var side_padding = 300
-var middle_padding = 60
-var left_player = Vector2(120, 200)
-var right_player = Vector2(300, 500)
+onready var top_offset = 120 # need to copy thi wth Cursor.gd if you change this
+onready var side_padding = 300
+onready var middle_padding = 60
+onready var left_player = Vector2(120, 200)
+onready var right_player = Vector2(300, 500)
 
 onready var timer = get_node("Timer2")
 onready var Spawner = load("res://spawner/Spawner.tscn")
@@ -21,7 +21,7 @@ func _ready():
 	_resized()
 	for x in range(0, number_of_leaks + 1):
 		foo.append(pow(x,growth_rate)/pow(number_of_leaks, growth_rate))
-#		print(pow(x,growth_rate)/pow(number_of_leaks, growth_rate))
+		#print(pow(x,growth_rate)/pow(number_of_leaks, growth_rate))
 	
 func _process(delta):
 	if foo[i] * match_duration < match_duration - timer.get_time_left():

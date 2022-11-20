@@ -14,6 +14,10 @@ config/name="Upsi Jam 2 . 0"
 run/main_scene="res://startscreen/StartScreen.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globals="*res://Globals.gd"
+
 [display]
 
 window/size/height=640

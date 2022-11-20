@@ -14,4 +14,3 @@ func _ready():
 
 func _on_Timer_timeout():
 	time++
-	print(time)
