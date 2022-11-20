@@ -58,7 +58,7 @@ texture = ExtResource( 9 )
 offset = Vector2( 48, 80 )
 
 [node name="Timer1" type="Sprite" parent="."]
-position = Vector2( 512, 152 )
+position = Vector2( 506, 34 )
 scale = Vector2( 0.59375, 0.59375 )
 texture = ExtResource( 11 )
 
@@ -109,14 +109,14 @@ shape = SubResource( 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="RightPadding"]
 anchor_right = 1.0
-margin_left = 73.0
+margin_left = 69.0
 margin_top = 120.0
-margin_right = 135.0
-margin_bottom = 648.0
+margin_right = 130.0
+margin_bottom = 647.0
 
 [node name="TextureRect0" type="TextureRect" parent="RightPadding/VBoxContainer"]
-margin_right = 62.0
-margin_bottom = 129.0
+margin_right = 61.0
+margin_bottom = 128.0
 size_flags_vertical = 3
 texture = ExtResource( 4 )
 expand = true
@@ -124,9 +124,9 @@ stretch_mode = 5
 flip_h = true
 
 [node name="TextureRect1" type="TextureRect" parent="RightPadding/VBoxContainer"]
-margin_top = 133.0
-margin_right = 62.0
-margin_bottom = 262.0
+margin_top = 132.0
+margin_right = 61.0
+margin_bottom = 261.0
 size_flags_vertical = 3
 texture = ExtResource( 4 )
 expand = true
@@ -134,9 +134,9 @@ stretch_mode = 5
 flip_h = true
 
 [node name="TextureRect2" type="TextureRect" parent="RightPadding/VBoxContainer"]
-margin_top = 266.0
-margin_right = 62.0
-margin_bottom = 395.0
+margin_top = 265.0
+margin_right = 61.0
+margin_bottom = 394.0
 size_flags_vertical = 3
 texture = ExtResource( 4 )
 expand = true
@@ -144,9 +144,9 @@ stretch_mode = 5
 flip_h = true
 
 [node name="TextureRect3" type="TextureRect" parent="RightPadding/VBoxContainer"]
-margin_top = 399.0
-margin_right = 62.0
-margin_bottom = 528.0
+margin_top = 398.0
+margin_right = 61.0
+margin_bottom = 527.0
 size_flags_vertical = 3
 texture = ExtResource( 4 )
 expand = true
@@ -164,10 +164,10 @@ shape = SubResource( 2 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LeftPadding"]
 anchor_right = 1.0
-margin_left = -133.0
-margin_top = 123.0
-margin_right = -81.0
-margin_bottom = 651.0
+margin_left = -135.0
+margin_top = 125.0
+margin_right = -83.0
+margin_bottom = 653.0
 
 [node name="TextureRect0" type="TextureRect" parent="LeftPadding/VBoxContainer"]
 margin_right = 52.0
@@ -205,21 +205,22 @@ expand = true
 stretch_mode = 5
 
 [node name="timing" type="Node2D" parent="."]
+position = Vector2( 1, 1 )
 
 [node name="min" type="Label" parent="timing"]
-margin_left = 458.0
-margin_top = 154.0
-margin_right = 498.0
-margin_bottom = 187.0
+margin_left = 452.0
+margin_top = 36.0
+margin_right = 492.0
+margin_bottom = 69.0
 custom_fonts/font = SubResource( 4 )
 text = "99"
 align = 1
 
 [node name="sec" type="Label" parent="timing"]
-margin_left = 525.0
-margin_top = 154.0
-margin_right = 565.0
-margin_bottom = 187.0
+margin_left = 519.0
+margin_top = 36.0
+margin_right = 559.0
+margin_bottom = 69.0
 custom_fonts/font = SubResource( 4 )
 text = "99"
 
