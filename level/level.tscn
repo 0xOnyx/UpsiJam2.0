@@ -1,10 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://level/level.gd" type="Script" id=1]
 [ext_resource path="res://score/score.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/Cursor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://blocker/bouncy_asset(2).png" type="Texture" id=4]
-[ext_resource path="res://font/clacon2.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://font/timer.tres" type="DynamicFont" id=5]
 [ext_resource path="res://spawn_tester/spawn_tester.tscn" type="PackedScene" id=6]
 [ext_resource path="res://level/back_ground_2.png" type="Texture" id=7]
 [ext_resource path="res://level/compteur.png" type="Texture" id=9]
@@ -33,10 +33,6 @@ extents = Vector2( 90, 331.5 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 89.5, 331.5 )
 
-[sub_resource type="DynamicFont" id=4]
-size = 40
-font_data = ExtResource( 5 )
-
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -60,6 +56,7 @@ texture = ExtResource( 9 )
 offset = Vector2( 48, 80 )
 
 [node name="Timer1" type="Sprite" parent="."]
+visible = false
 position = Vector2( 506, 34 )
 scale = Vector2( 0.59375, 0.59375 )
 texture = ExtResource( 11 )
@@ -85,17 +82,19 @@ size = Vector2( 0.2, 0.2 )
 [node name="BlockerBag" type="Node" parent="."]
 
 [node name="score1" parent="." instance=ExtResource( 2 )]
-margin_left = 237.0
-margin_top = 32.0
-margin_right = 381.0
-margin_bottom = 96.0
+margin_left = 463.0
+margin_top = 79.0
+margin_right = 607.0
+margin_bottom = 143.0
 rect_pivot_offset = Vector2( 32, 16 )
 
 [node name="score2" parent="." instance=ExtResource( 2 )]
-margin_left = 630.0
-margin_top = 32.0
-margin_right = 773.0
-margin_bottom = 96.0
+anchor_right = 0.321
+anchor_bottom = 0.275
+margin_left = 783.0
+margin_top = 80.0
+margin_right = 926.0
+margin_bottom = 144.0
 rect_pivot_offset = Vector2( 32, 16 )
 
 [node name="SpawnTester" parent="." instance=ExtResource( 6 )]
@@ -216,20 +215,28 @@ texture = ExtResource( 11 )
 position = Vector2( 1, 1 )
 
 [node name="min" type="Label" parent="timing"]
-margin_left = 452.0
-margin_top = 36.0
-margin_right = 492.0
-margin_bottom = 69.0
-custom_fonts/font = SubResource( 4 )
+margin_left = 32.0
+margin_top = 22.0
+margin_right = 78.0
+margin_bottom = 63.0
+custom_fonts/font = ExtResource( 5 )
 text = "99"
 align = 1
 
+[node name="Label" type="Label" parent="timing"]
+margin_left = 83.0
+margin_top = 19.0
+margin_right = 123.0
+margin_bottom = 60.0
+custom_fonts/font = ExtResource( 5 )
+text = ":"
+
 [node name="sec" type="Label" parent="timing"]
-margin_left = 519.0
-margin_top = 36.0
-margin_right = 559.0
-margin_bottom = 69.0
-custom_fonts/font = SubResource( 4 )
+margin_left = 97.0
+margin_top = 22.0
+margin_right = 143.0
+margin_bottom = 63.0
+custom_fonts/font = ExtResource( 5 )
 text = "99"
 
 [node name="Timer" type="Timer" parent="."]
