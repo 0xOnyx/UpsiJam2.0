@@ -55,7 +55,7 @@ func style3():
 
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
-	size_pos = get_viewport().size.x
+	size_pos = get_tree().get_root().size.x
 	if (position.x < size_pos / 2):
 		var value = Globals.get("score1") + 1;
 		Globals.set("score1", value);
@@ -66,6 +66,6 @@ func _on_VisibilityNotifier2D_screen_exited() -> void:
 	queue_free()
 
 
-func _on_Control_resized():
-	print(get_viewport())
-	size_pos = .get_viewport().size.x
+
+
+

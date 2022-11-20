@@ -44,15 +44,11 @@ func spawn_ball():
 		randomize()
 		style = randi() % ball.numbersBalls
 	ball.init(style)
-	write_text()
 	ball.position = position;
 	if get_parent().get_parent() != null:
 		get_parent().get_parent().get_node("BallBag").add_child(ball)
 	else:
 		.add_child(ball)
-
-func write_text():
-	$Label.set_text("$ -su foobar ur mum")
 
 func _on_Timer_timeout():
 	queue_free()
