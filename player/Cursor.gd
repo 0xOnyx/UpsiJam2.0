@@ -20,8 +20,7 @@ onready var flagPacked = preload("res://blocker/blocker.tscn")
 onready var sprite;
 onready var place = $block;
 
-var preview= [randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4];
-
+var preview = []
 
 var mirror = false
 var can_play = true;
@@ -35,6 +34,8 @@ onready var right_player = Vector2(300, 500)
 
 func _ready():
 	_resized()
+	randomize()
+	preview = [randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4];	
 	pick()
 	position = Vector2(get_viewport().size.x / 2,get_viewport().size.y / 2)
 
