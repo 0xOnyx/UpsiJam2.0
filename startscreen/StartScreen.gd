@@ -27,6 +27,9 @@ func _process(delta):
 	elif (Input.is_action_just_pressed("1_select") and current_select == 1):
 		get_tree().quit()
 
+	if Input.is_action_pressed("key_exit"):
+		get_tree().quit()
+
 func _on_Timer_timeout():
 	if (current_select == 0):
 		if (select_start.is_visible()):

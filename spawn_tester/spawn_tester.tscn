@@ -17,5 +17,15 @@ autostart = true
 margin_right = 40.0
 margin_bottom = 40.0
 
+[node name="PlayerLeft" type="Node2D" parent="."]
+position = Vector2( 85, 85 )
+
+[node name="PlayerRight" type="Node2D" parent="."]
+position = Vector2( 85, 85 )
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer_timeout"]
 [connection signal="resized" from="Control" to="." method="_on_Control_resized"]
