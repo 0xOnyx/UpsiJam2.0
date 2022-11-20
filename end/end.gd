@@ -28,6 +28,7 @@ func _ready():
 		you2.text = "You LOSE !"
 		player.stream = audioLeft
 	musique.stream = game_musique
+	player.stream.loop = false
 	musique.play()	
 	player.play()
 	
