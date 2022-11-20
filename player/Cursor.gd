@@ -20,7 +20,7 @@ onready var flagPacked = preload("res://blocker/blocker.tscn")
 onready var sprite;
 onready var place = $block;
 
-var preview= [randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2,randi() % 2];
+var preview= [randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4,randi() % 4];
 
 
 var mirror = false
@@ -61,8 +61,15 @@ func pick():
 		sprite = load("res://blocker/sticky_asset.png")
 	elif random == 2:
 		sprite = load("res://blocker/git_merge/git_merge_right.png")	
+	elif random == 3:
+		sprite = load("res://blocker/gargabe.png")	
 	place.texture = sprite
-	preview.append(randi() % 3);
+	if (random == 3):
+		place.hframes = 16
+		place.frame = 0;
+	else:
+		place.hframes = 1					
+	preview.append(randi() % 4);
 	var i = 0;
 	while i < 4:
 		var texture = load("res://blocker/bouncy_asset.png")
@@ -70,19 +77,25 @@ func pick():
 			texture = load("res://blocker/sticky_asset.png")
 		if (preview[i] == 2):
 			texture = load("res://blocker/git_merge/git_merge_right.png")
+		if preview[i] == 3:
+			texture = load("res://blocker/gargabe.png")	
 		if (player == "1"):
-			get_parent().get_node("RightPadding").get_node("VBoxContainer").get_node("TextureRect" + str(i)).texture = texture;
+			get_parent().get_node("RightPadding").get_node("VBoxContainer").get_node("TextureRect" + str(i)).texture = texture;	
 		else:
 			get_parent().get_node("LeftPadding").get_node("VBoxContainer").get_node("TextureRect" + str(i)).texture = texture;
-				
 		i+=1
 
 
 
 func _physics_process(delta):
 	modulate.a = 0.8
-
-	
+	place.scale = size	
+	if (preview[0] == 3):
+		place.hframes = 16
+		place.frame = 0
+		place.scale = Vector2(1,1)
+		mirror = false
+		place.rotation_degrees = 0
 
 	vel.x = 0;
 	vel.y = 0;
@@ -115,10 +128,13 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed(inputs["place"]) && can_play:
 		can_play = false;
 		var block = flagPacked.instance();
-		block.init(preview.pop_front(),player)
+		var type = block.init(preview.pop_front(), player)
 		block.position = position;
 		block.rotation_degrees = place.rotation_degrees;
-		block.scale = place.scale;
+		if (type == 3):
+			block.scale = size
+		else:
+			block.scale = place.scale
 		block.get_node("Sprite").texture = sprite;
 		get_parent().get_node("BlockerBag").add_child(block);
 		pick();

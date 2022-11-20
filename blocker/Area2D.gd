@@ -21,8 +21,12 @@ func _on_Area2D_body_entered(body):
 	if body is KinematicBody2D:
 		body.can_play = false;
 		return;
+	if get_parent().blocker_type == 3 && body is RigidBody2D:
+		body.queue_free();
 	$Bouncy.play()
 	hit += 1
+	if (get_parent().blocker_type == 3 && hit % 2 == 0):
+		get_parent().get_node("Sprite").frame+= 1
 	if hit == 15:
 		get_parent().modulate.a = .8
 	if hit == 16:
