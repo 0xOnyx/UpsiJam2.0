@@ -14,7 +14,7 @@ var blocker_type;
 
 func enable_commit():
 	$commit.disabled = false
-	$TriangleArea/commit.disabled = false
+	$TriangleArea/commit.disabled = true
 	$rect.disabled = true
 	$TriangleArea/rect.disabled = true
 	$poly.disabled = true

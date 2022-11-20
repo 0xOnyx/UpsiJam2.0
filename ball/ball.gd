@@ -30,26 +30,33 @@ func init(var style):
 
 func scale_ball(fac):
 	$Sprite.scale *= Vector2(fac, fac)
-	$CollisionShape2D.scale *= Vector2(fac, fac)
+	var	i = 0;
+	while i < 4:
+		get_node(str(i)).scale *= Vector2(fac, fac)
+		i+=1
 
 func style0():
 #	print("heavy ball")
 	$Sprite.frame = 0
+	$"0".disabled = false
 	weight = 100
 
 func style1():
 #	print("low bounce ball")
 	$Sprite.frame = 1
+	$"1".disabled = false
 	bounce_factor = .1
 
 func style2():
 #	print("medium bounce ball")
 	$Sprite.frame = 2
+	$"2".disabled = false
 	bounce_factor = .5
 
 func style3():
 #	print("high bounce ball")
 	$Sprite.frame = 3
+	$"3".disabled = false
 	bounce_factor = .9
 
 
