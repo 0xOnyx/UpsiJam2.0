@@ -3,6 +3,10 @@ extends Node2D
 var playerScore1 = Globals.get("score1")
 var playerScore2 = Globals.get("score2")
 
+
+onready var game_musique = load("res://audio/wait.wav")
+onready var musique = get_node("musique")
+
 onready var root = get_tree().root
 onready var score1Node = get_node("score1")
 onready var score2Node = get_node("score2")
@@ -23,7 +27,10 @@ func _ready():
 		you1.text = "You WIN !"
 		you2.text = "You LOSE !"
 		player.stream = audioLeft
+	musique.stream = game_musique
+	musique.play()	
 	player.play()
+	
 
 func _process(delta):
 	if (Input.is_action_just_pressed("1_select")):

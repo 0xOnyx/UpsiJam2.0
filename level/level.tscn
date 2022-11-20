@@ -37,7 +37,7 @@ extents = Vector2( 89.5, 331.5 )
 script = ExtResource( 1 )
 
 [node name="BackGround1" type="Sprite" parent="."]
-position = Vector2( 512, 314 )
+position = Vector2( 508, 321 )
 scale = Vector2( 1.43333, 1.43333 )
 texture = ExtResource( 7 )
 

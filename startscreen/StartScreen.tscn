@@ -355,4 +355,6 @@ margin_bottom = 320.0
 wait_time = 0.502
 autostart = true
 
+[node name="musique" type="AudioStreamPlayer" parent="."]
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

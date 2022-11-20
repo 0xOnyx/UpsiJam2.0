@@ -1,16 +1,18 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 var current_select = 0
 
+onready var game_musique = load("res://audio/wait.wav")
+onready var musique = get_node("musique")
 
 
 onready var select_start = get_node("select_start")
 onready var select_exit = get_node("select_exit")
+
+func _ready():
+	musique.stream = game_musique
+	musique.play()
 
 func _process(delta):
 	if Input.is_action_just_pressed("1_move_down") or Input.is_action_just_pressed("1_move_up"):
