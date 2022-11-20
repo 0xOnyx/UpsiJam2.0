@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://blocker/gargabe.png" type="Texture" id=1]
+[ext_resource path="res://blocker/git_merge/git_merge_right.png" type="Texture" id=1]
 [ext_resource path="res://blocker/blocker.gd" type="Script" id=2]
 [ext_resource path="res://blocker/Area2D.gd" type="Script" id=3]
 [ext_resource path="res://audio/bouncy.mp3" type="AudioStream" id=4]
@@ -29,24 +29,12 @@ tracks/0/keys = {
 "values": [ 0.4, 68.0, 0.4 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("poly:disabled")
+tracks/1/path = NodePath("TriangleArea/poly:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("TriangleArea/poly:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -68,24 +56,12 @@ tracks/0/keys = {
 "values": [ 0.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("poly:disabled")
+tracks/1/path = NodePath("TriangleArea/poly:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ true ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("TriangleArea/poly:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -108,24 +84,12 @@ tracks/0/keys = {
 "values": [ 0.4, -68.0, 0.4 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("poly:disabled")
+tracks/1/path = NodePath("TriangleArea/poly:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("TriangleArea/poly:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -154,11 +118,11 @@ shape = SubResource( 6 )
 disabled = true
 
 [node name="poly" type="CollisionPolygon2D" parent="."]
-position = Vector2( 620, 383 )
-rotation = -3.14159
-scale = Vector2( 17.8817, 17.8817 )
+position = Vector2( 5, 22 )
+rotation = 1.5708
+scale = Vector2( 7.37745, 8.91669 )
 build_mode = 1
-polygon = PoolVector2Array( 39.1464, 27.2343, 38.4194, 28.0172, 37.4687, 28.3527, 36.4621, 27.9613, 35.791, 27.2902, 35.7351, 26.4514, 35.735, 24.9414, 35.5673, 24.0467, 35.1758, 23.3756, 34.5047, 23.0401, 32.6593, 23.0401, 30.1986, 23.0401, 29.5835, 22.4809, 29.1361, 21.4183, 29.5275, 20.3558, 30.4223, 19.5729, 35.3435, 19.5728, 35.735, 19.1254, 35.8468, 15.7701, 36.3501, 14.9312, 37.4127, 14.6516, 38.5311, 14.9312, 39.2022, 15.7141 )
+polygon = PoolVector2Array( -8.53954, -8.63549, -8.1329, -10.8785, -6.37077, -12.1121, -3.9309, -11.5514, -3.11111, -8.66667, -3.11111, -4.58333, -2.55556, -3.41667, -1.55556, -2.66667, 0, -2.25, 2.11111, -2.25, 8.11111, -2.25, 9.55556, -1.25, 10, 0.166667, 9.55556, 1.33333, 8.33333, 2.66667, 7.33333, 2.91667, -2.22222, 2.91667, -2.88889, 3.5, -3.11761, 10.9906, -4.33754, 13.3458, -6.23522, 13.5701, -8.81064, 11.6635, -8.26844, 9.08409 )
 disabled = true
 
 [node name="TriangleArea" type="Area2D" parent="."]
@@ -182,10 +146,11 @@ shape = SubResource( 7 )
 disabled = true
 
 [node name="poly" type="CollisionPolygon2D" parent="TriangleArea"]
-position = Vector2( 8, -2 )
-scale = Vector2( 9, 12 )
+position = Vector2( 5, 22 )
+rotation = 1.5708
+scale = Vector2( 7.37745, 8.91669 )
 build_mode = 1
-polygon = PoolVector2Array( -9.77778, -8.41667, -8.22222, -9.66667, -6.44444, -10.1667, -4.33333, -9.66667, -3.11111, -8.66667, -3.11111, -4.58333, -2.55556, -3.41667, -1.55556, -2.66667, 0, -2.25, 2.11111, -2.25, 8.11111, -2.25, 9.55556, -1.25, 10, 0.166667, 9.55556, 1.33333, 8.33333, 2.66667, 7.33333, 2.91667, -2.22222, 2.91667, -2.88889, 3.5, -2.88889, 8.25, -3.77778, 9.5, -5.88889, 10.0833, -9.22222, 9.58333, -9.88889, 8.16667 )
+polygon = PoolVector2Array( -8.53954, -8.63549, -8.1329, -10.8785, -6.37077, -12.1121, -3.9309, -11.5514, -3.11111, -8.66667, -3.11111, -4.58333, -2.55556, -3.41667, -1.55556, -2.66667, 0, -2.25, 2.11111, -2.25, 8.11111, -2.25, 9.55556, -1.25, 10, 0.166667, 9.55556, 1.33333, 8.33333, 2.66667, 7.33333, 2.91667, -2.22222, 2.91667, -2.88889, 3.5, -3.11761, 10.9906, -4.33754, 13.3458, -6.23522, 13.5701, -8.81064, 11.6635, -8.26844, 9.08409 )
 disabled = true
 
 [node name="Bouncy" type="AudioStreamPlayer" parent="TriangleArea"]
