@@ -17,6 +17,7 @@ var out = 1;
 
 func init(var style):
 	scale_ball(.5)
+	.set_bounce(.5)
 	if style == 0:
 		style1()
 	elif style == 1:
@@ -52,9 +53,9 @@ func style3():
 	bounce_factor = .9
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
-	if (position.x > get_viewport().size.x / 2):
+	if (position.x < get_viewport().size.x / 2):
 		get_parent().get_parent().get_parent().score1 += 1
-	elif (position.x < get_viewport().size.x / 2):
+	elif (position.x > get_viewport().size.x / 2):
 		get_parent().get_parent().get_parent().score2 += 1;
 #	var foo = get_tree().get_root()
 	queue_free()

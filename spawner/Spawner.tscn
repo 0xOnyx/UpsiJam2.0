@@ -8,8 +8,4 @@ script = ExtResource( 2 )
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color( 1, 0, 0, 1 )
-polygon = PoolVector2Array( 4, 0, -5, -6, -7, 4, 8, 7 )
-
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
