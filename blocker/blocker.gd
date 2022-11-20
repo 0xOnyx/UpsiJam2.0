@@ -8,6 +8,7 @@ extends StaticBody2D
 onready var bouncy_sprite = preload("res://blocker/bouncy_asset.png")
 onready var sticky_sprite = preload("res://blocker/sticky_asset.png")
 onready var git_merge_right = preload("res://blocker/git_merge/git_merge_right.png")
+onready var garbage = preload("res://blocker/gargabe.png")
 #onready var sticky_sound = preload("res://audio/sticky.mp3")
 var blocker_type;
 
@@ -19,6 +20,15 @@ func enable_commit():
 	$poly.disabled = true
 	$TriangleArea/poly.disabled = true
 
+func enable_void():
+	$commit.disabled = false
+	$TriangleArea/commit.disabled = false
+	$rect.disabled = true
+	$TriangleArea/rect.disabled = true
+	$poly.disabled = true
+	$TriangleArea/poly.disabled = true
+	$Sprite.scale = Vector2(5,3)
+	$Sprite.hframes = 16
 
 func enable_rect():
 	
@@ -61,6 +71,11 @@ func init(var type:int,var player):
 		blocker_type = 2
 		enable_poly()
 		$Sprite.texture = git_merge_right
+	if (type == 3):
+		blocker_type = 3
+		enable_void()
+		$Sprite.texture = garbage
+	return type
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
