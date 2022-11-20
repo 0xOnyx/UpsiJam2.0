@@ -41,13 +41,36 @@ func spawn_spawner():
 		var ts = TextStream.instance()
 		ts.position = $PlayerLeft.get_position()
 		.add_child(ts)
-		ts.init("/a test string")
+		ts.init(give_string())
 	else:
 		p = int(rand_range(right_player.x, right_player.y))
+		var ts = TextStream.instance()
+		ts.position = $PlayerRight.get_position()
+		.add_child(ts)
+		ts.init(give_string())
 	spawner.position = Vector2(p, top_offset)
 	get_node("SpawnerBag").add_child(spawner)
 	# print("tried to make a spawner here", spawner, spawner.position)
-	
+
+func give_string():
+	var r = rand_range(0, 1)
+	if r < .1:
+		return ("[KO] Bus Erorr")
+	elif r < .2:
+		return ("misplaced type")
+	elif r < .3:
+		return ("A SNAKE IN MY SHOES")
+	elif r < .4:
+		return ("A SNAKE IN MY SHOES")
+	elif r < .5:
+		return ("Signal Expection")
+	elif r < .6:
+		return ("63 merg confilicts")
+	elif r < .7:
+		return ("hello worl!")
+	else:
+		return ("404 - ip not found")
+
 func _on_Timer_timeout():
 	queue_free()
 	
