@@ -14,6 +14,7 @@ onready var right_player = Vector2(300, 500)
 
 onready var timer = get_node("Timer2")
 onready var Spawner = load("res://spawner/Spawner.tscn")
+onready var TextStream = load("res://TextStream/TextSteam.tscn")
 
 func _ready():
 	timer.start(match_duration)
@@ -37,6 +38,10 @@ func spawn_spawner():
 	randomize()
 	if i % 2 == 0:
 		p = int(rand_range(left_player.x, left_player.y))
+		var ts = TextStream.instance()
+		ts.position = $PlayerLeft.get_position()
+		.add_child(ts)
+		ts.init("/a test string")
 	else:
 		p = int(rand_range(right_player.x, right_player.y))
 	spawner.position = Vector2(p, top_offset)
