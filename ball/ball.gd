@@ -8,7 +8,7 @@ onready var size_pos = get_viewport().size.x
 
 var bounce_factor
 var numbersBalls = 4
-
+var was_blackholed = false;
 var out = 1;
 
 # Called when the node enters the scene tree for the first time.
@@ -56,12 +56,13 @@ func style3():
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
 	size_pos = get_tree().get_root().size.x
-	if (position.x < size_pos / 2):
-		var value = Globals.get("score1") + 1;
-		Globals.set("score1", value);
-	elif (position.x > size_pos / 2):
-		var value = Globals.get("score2") + 1;
-		Globals.set("score2", value);
+	if(!was_blackholed):
+		if (position.x < size_pos / 2):
+			var value = Globals.get("score1") + 1;
+			Globals.set("score1", value);
+		elif (position.x > size_pos / 2):
+			var value = Globals.get("score2") + 1;
+			Globals.set("score2", value);
 #	var foo = get_tree().get_root()
 	queue_free()
 
