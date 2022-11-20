@@ -247,11 +247,11 @@ shader_param/grille_opacity = 0.137
 shader_param/resolution = Vector2( 640, 480 )
 shader_param/pixelate = true
 shader_param/roll = true
-shader_param/roll_speed = 8.0
+shader_param/roll_speed = 5.0
 shader_param/roll_size = 15.0
-shader_param/roll_variation = 1.8
-shader_param/distort_intensity = 0.05
-shader_param/noise_opacity = 0.4
+shader_param/roll_variation = 3.297
+shader_param/distort_intensity = 0.021
+shader_param/noise_opacity = 0.129
 shader_param/noise_speed = 5.0
 shader_param/static_noise_intensity = 0.06
 shader_param/aberration = 0.01
@@ -268,7 +268,7 @@ script = ExtResource( 2 )
 [node name="ColorRect2" type="ColorRect" parent="."]
 margin_right = 1024.0
 margin_bottom = 640.0
-color = Color( 0.270588, 0.0509804, 0.0509804, 1 )
+color = Color( 0.137255, 0.278431, 0.321569, 1 )
 
 [node name="title" type="Label" parent="."]
 margin_left = 414.0
@@ -375,9 +375,10 @@ margin_right = 1024.0
 margin_bottom = 640.0
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.502
+wait_time = 0.813
 autostart = true
 
 [node name="player" type="AudioStreamPlayer2D" parent="."]
 
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="finished" from="player" to="." method="_on_player_finished"]

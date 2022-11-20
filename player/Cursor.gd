@@ -27,11 +27,11 @@ var mirror = false
 var can_play = true;
 var speed : int;
 
-var top_offset = 120 # need to copy the setting from the spawn_tester.gd if you change this
-var side_padding = 220
-var middle_padding = 60
-var left_player = Vector2(120, 200)
-var right_player = Vector2(300, 500)
+onready var top_offset = 120 # need to copy the setting from the spawn_tester.gd if you change this
+onready var side_padding = 220
+onready var middle_padding = 60
+onready var left_player = Vector2(120, 200)
+onready var right_player = Vector2(300, 500)
 
 func _ready():
 	_resized()
@@ -81,9 +81,6 @@ func pick():
 
 func _physics_process(delta):
 	modulate.a = 0.8
-
-	
-
 	vel.x = 0;
 	vel.y = 0;
 	if Input.is_action_just_pressed(inputs["mirror"]):

@@ -54,8 +54,10 @@ func style3():
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
 	if (position.x < get_viewport().size.x / 2):
-		get_parent().get_parent().get_parent().score1 += 1
+		var value = Globals.get("score1") + 1;
+		Globals.set("score1", value);
 	elif (position.x > get_viewport().size.x / 2):
-		get_parent().get_parent().get_parent().score2 += 1;
+		var value = Globals.get("score2") + 1;
+		Globals.set("score2", value);
 #	var foo = get_tree().get_root()
 	queue_free()
