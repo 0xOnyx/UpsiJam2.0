@@ -354,17 +354,14 @@ text = "      _"
 
 [node name="Label" type="Label" parent="."]
 margin_left = 108.0
-margin_top = 104.0
+margin_top = 86.0
 margin_right = 935.0
-margin_bottom = 533.0
+margin_bottom = 259.0
 custom_fonts/font = SubResource( 7 )
-text = " It's a late hardworking night, you need to commit your work though git... you just finish in the Same Time with one of your coworker...
+text = "Your files is going to over overwhelmed you, make sure to delegate to your coworker.
 
-In the shiny characters of your terminal, a line start to glow... write in an ancient dark theme :
-
-One branch to rule them all, and in the merge,
-
- UNITE THEIR WORK ! "
+The winner is the one
+ with the least files passing though his side."
 align = 1
 valign = 1
 autowrap = true
@@ -372,12 +369,61 @@ script = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="Label"]
 
+[node name="Label3" type="Label" parent="."]
+margin_left = 552.0
+margin_top = 271.0
+margin_right = 933.0
+margin_bottom = 565.0
+rect_pivot_offset = Vector2( 282, 67 )
+custom_fonts/font = SubResource( 7 )
+text = "Coworker of the right
+
+I
+JKL
+to move your Cursor
+
+O
+to place
+
+9
+to rotate"
+align = 1
+valign = 1
+autowrap = true
+script = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="Label3"]
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 104.0
+margin_top = 272.0
+margin_right = 485.0
+margin_bottom = 566.0
+rect_pivot_offset = Vector2( 282, 67 )
+custom_fonts/font = SubResource( 7 )
+text = "Coworker of the left
+
+W
+A.S.D
+to move your Cursor
+
+Q
+to place
+
+1
+to rotate"
+align = 1
+valign = 1
+autowrap = true
+script = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="Label2"]
+
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource( 6 )
-margin_left = 2.0
-margin_top = 4.0
-margin_right = 1026.0
-margin_bottom = 644.0
+margin_top = -2.0
+margin_right = 1024.0
+margin_bottom = 638.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.502
