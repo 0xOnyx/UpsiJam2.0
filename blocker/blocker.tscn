@@ -147,8 +147,8 @@ shape = SubResource( 6 )
 disabled = true
 
 [node name="commit" type="CollisionShape2D" parent="."]
-position = Vector2( 5.98557, -2.04103 )
-rotation = 0.771436
+position = Vector2( 5.97986, -3.04246 )
+rotation = 0.788889
 scale = Vector2( 4.27755, 4.18036 )
 shape = SubResource( 6 )
 disabled = true
@@ -168,9 +168,9 @@ audio_bus_override = true
 script = ExtResource( 3 )
 
 [node name="commit" type="CollisionShape2D" parent="TriangleArea"]
-position = Vector2( 5.97986, -3.04246 )
-rotation = 0.788889
-scale = Vector2( 4.27755, 4.18036 )
+position = Vector2( 5.98557, -2.04103 )
+rotation = 0.771436
+scale = Vector2( 3.278, 4.079 )
 shape = SubResource( 6 )
 disabled = true
 

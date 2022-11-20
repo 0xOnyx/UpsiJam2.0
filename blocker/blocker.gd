@@ -23,8 +23,8 @@ func enable_commit():
 func enable_void():
 	$commit.disabled = false
 	$TriangleArea/commit.disabled = false
-	$rect.disabled = true
-	$TriangleArea/rect.disabled = true
+	$rect.disabled = false
+	$TriangleArea/rect.disabled = false
 	$poly.disabled = true
 	$TriangleArea/poly.disabled = true
 	$Sprite.scale = Vector2(5,3)
@@ -58,7 +58,7 @@ func init(var type:int,var player):
 		get_node("Sprite").texture = bouncy_sprite
 		blocker_type = 0;
 		
-		enable_rect()
+		enable_commit()
 
 	if (type == 1):
 		$Sprite.texture = sticky_sprite

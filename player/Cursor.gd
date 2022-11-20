@@ -68,7 +68,7 @@ func pick():
 		place.hframes = 16
 		place.frame = 0;
 	else:
-		place.hframes = 1					
+		place.hframes = 1
 	preview.append(randi() % 4);
 	var i = 0;
 	while i < 4:
