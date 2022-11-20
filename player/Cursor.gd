@@ -51,9 +51,12 @@ func _ready():
 
 func can_play():
 	for block in blockers:
-		for body in block.get_node("TriangleArea").get_overlapping_bodies():
-			if ("player" in body):
-				return (false);
+		if(weakref(block).get_ref()):
+			for body in block.get_node("TriangleArea").get_overlapping_bodies():
+				if ("player" in body):
+					return (false);
+		else:
+			blockers.erase(block)
 	return (true)
 func pick():
 	var random = preview[0]
