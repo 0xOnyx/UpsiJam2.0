@@ -1,10 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://ball/ball.gd" type="Script" id=1]
 [ext_resource path="res://ball/4_balls.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 31.0161
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 26.0
+height = 12.0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 32, 32 )
 
 [node name="Ball" type="RigidBody2D"]
 script = ExtResource( 1 )
@@ -13,10 +20,28 @@ script = ExtResource( 1 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 hframes = 4
+frame = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="0" type="CollisionShape2D" parent="."]
 scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 1 )
+disabled = true
+
+[node name="1" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="2" type="CollisionPolygon2D" parent="."]
+scale = Vector2( 0.5, 0.5 )
+polygon = PoolVector2Array( 0, -32, 28, -16, 28, 16, 0, 32, -28, 16, -28, -16, 0, -32 )
+disabled = true
+
+[node name="3" type="CollisionShape2D" parent="."]
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 3 )
+disabled = true
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 
